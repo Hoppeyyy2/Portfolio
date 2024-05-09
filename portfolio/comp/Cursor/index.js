@@ -6,7 +6,6 @@ import {letter} from "@/utils/variables";
 import { useTheme } from "@/utils/provider";
 
 const Cont = styled.div`
-display:flex;
 width:100px;
 height:100px;
 justify-content:center;
@@ -15,15 +14,17 @@ pointer-events: none;
 `;
 const Outline = styled.div`
 border: 1.5px solid ${(props)=>props.letter};
-background:${(props)=>props.letter};
+background:${(props)=>props.Outline};
 mix-blend-mode: ${(props)=>props.blend};
 border-radius:50%;
 width:50px;
 height:50px;
 position:fixed;
+left:-20px;
+top:-20px;
 pointer-events: none;
 transform:translate(-50%,-50%);
-transition:.15s ease-in-out;
+transition:.25s linear;
 z-index:1000;
 
 :hover{
@@ -42,9 +43,7 @@ border-radius:50%;
 transform:translate(-50%,-50%);
 pointer-events: none;
 transition:.1s;
-
 z-index:1000;
-
 :hover{
   background:transparent;
 }
@@ -55,7 +54,6 @@ const Cursor = (
 ) =>{
   const { x, y } = useCursorPosition();
   var CursorFunc = function(){
-    let lastCursorPos = {x: -999, y: -999};
     let currentCursorPos = {x: -999, y: -999};
     let cursor, cursor2;
   
@@ -73,11 +71,11 @@ const Cursor = (
   
       setInterval(()=>{
         const delt = {
-          x: lastCursorPos.x - currentCursorPos.x,
-          y: lastCursorPos.y - currentCursorPos.y
+          x: currentCursorPos.x,
+          y: currentCursorPos.y
         }
         setCurrentCursorProps();
-        lastCursorPos = currentCursorPos;
+       
         console.log(currentCursorPos);
       });
   
@@ -96,8 +94,8 @@ const Cursor = (
 
   const { theme, setTheme } = useTheme();
   return<Cont>
-    <Dot letter={letter[theme]} className="cursor2" blend={theme === "light"?"color-dodge":"difference"}/> 
-    <Outline letter={letter[theme]} className="cursor" blend={theme === "light"?"color-burn":"difference"}/>
+    <Dot letter={letter[theme]} className="cursor2" blend={theme === "light"?"":"difference"}/> 
+    <Outline Outline={theme === "light"?"transparent":"#FFF4E3"} className="cursor" blend={theme === "light"?"":"difference"}/>
   </Cont>
 }
 
