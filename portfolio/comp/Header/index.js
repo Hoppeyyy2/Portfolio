@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components';
 import Link from 'next/link';
 import {letter} from "@/utils/variables";
 import { useTheme } from "@/utils/provider";
-
+import useCursorHandlers from "../../hooks/useCursorHandlers";
 
 const appear = keyframes`
 from{
@@ -17,7 +17,7 @@ to{
 `;
 const BtnCont = styled.li`
 padding:1.5rem;
-padding-right:${props=>props.paddingRight};
+padding-right:${(props)=>props.paddingRight};
 list-style-type:none;
 @media only screen and (max-width: 600px) {
 padding:2.5rem;
@@ -51,15 +51,16 @@ opacity:1;
 `;
 
 const Header = ({
-  src="/",
+  href="/",
   name="WORKS",
   paddingRight="0",
-  visit_color,
-  hover_color
+  onClick=()=>{},
 })=>{
-const { theme, setTheme } = useTheme();
-return<BtnCont paddingRight={paddingRight}>
-<Link href={src}>
+const { theme } = useTheme();
+const cursorHandlers = useCursorHandlers();
+
+return<BtnCont paddingRight={paddingRight} {...cursorHandlers} className="show-cursor">
+<Link href={href} onClick={onClick}>
   <Btn
   color={letter[theme]}
   >

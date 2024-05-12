@@ -1,7 +1,8 @@
-import { useContext, useCallback } from "react";
+import React, { useContext, useCallback } from "react";
 import { CursorContext } from "../utils/cursor_context";
 
 const useCursorHandlers = (options = {}) => {
+
   const [, setCursor] = useContext(CursorContext);
 
   const toggleCursor = () => {
@@ -19,7 +20,9 @@ const useCursorHandlers = (options = {}) => {
     }
     toggleCursor();
   });
+
   return { onMouseEnter, onMouseLeave };
+
 };
 
 export default useCursorHandlers;

@@ -1,11 +1,13 @@
 import react, {useState} from 'react';
 import * as React from 'react';
+import Link from 'next/link';
 import styled, { keyframes } from 'styled-components';
 import Header from '../Header';
+import LanguageSwitcher from '../LanguageSwitcher';
 import { Spin as Hamburger } from 'hamburger-react';
-import { motion } from "framer-motion"
 import {bg} from "@/utils/variables";
 import { useTheme } from "@/utils/provider";
+import useCursorHandlers from "../../hooks/useCursorHandlers";
 
 const Outside = styled.div`
 background:${(props)=> props.bg};
@@ -59,9 +61,9 @@ display:none;
 }
 `;
 const MobCont = styled.ul`
-height:90vh;
-width:100%;
-display:flex;
+width:${props=>props.width};
+min-height:${props=>props.height};
+display:${props=>props.display};
 position:absolute;
 left:0;
 z-index:1;
@@ -91,7 +93,7 @@ to{
 }
 `;
 
-const Link = styled.li`
+const Links = styled.li`
 padding:0.8rem;
 align-items:center;
 list-style-type:none;
@@ -103,39 +105,53 @@ const Nav = ({
 
 })=>{
   const [isOpen, setOpen] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
+  const cursorHandlers = useCursorHandlers();
+
+  var height = 0, width = 0, display = "none";
+  if(isOpen === true){
+    height="100vh";
+    width="100%";
+    display="flex";
+  }else if(isOpen === false){
+    height=0;
+    width=0;
+    display="none";
+  }
+const onLinkClick = () =>{
+  setOpen(false);
+}
+  //console.log(isOpen);
 return<Outside bg={bg[theme]}>
 <Cont>
-  <a href="#home"><Img src="/logo_pink.svg"/></a>
+  <Link href="/#home" {...cursorHandlers} className="show-cursor"><Img src="/logo_pink.svg"/></Link>
   <MainNav>
-  <Header  name="ABOUT" src="#about"/>
-  <Header  name="WORKS" src="#works"/>
-  <Header  name="CONTACT" src="#contact" paddingRight="60px"/>
-  <Header  name="ENG"/>
+  <Header  name="ABOUT" href="/#about"/>
+  <Header  name="WORKS" href="/#works"/>
+  <Header  name="CONTACT" href="/#contact" paddingRight="60px"/>
+  <LanguageSwitcher/>
   </MainNav>
   <PhoneNav>
     <Hamburger toggled={isOpen} toggle={setOpen} color={theme === "light"? "#030B19":"#FFF4E3"} size={25} duration={0.8} rounded label="Show menu"/>
   </PhoneNav>
 </Cont>
-{isOpen?
-  <MobCont bg={bg[theme]}>
-  <Header  name="ABOUT" src="#about" />
-  <Header  name="WORKS" src="#works"/>
-  <Header  name="CONTACT" src="#contact" />
-  <Header  name="ENG" />
+  <MobCont bg={bg[theme]} height={height} width={width} display={display}>
+  <Header  name="ABOUT" href="/#about" onClick={onLinkClick}/>
+  <Header  name="WORKS" href="/#works" onClick={onLinkClick}/>
+  <Header  name="CONTACT" href="/#contact" onClick={onLinkClick}/>
+  <LanguageSwitcher/>
   <LinksCont>
-    <Link>
-      <a href="https://github.com/Hoppeyyy2" target="_blank"><Img src="/sns/github.svg" style={{height:39}}/></a>
-    </Link>
-    <Link>
-      <a href="https://www.linkedin.com/in/chisaki-nakamura-951b55229/" target="_blank"><Img src="/sns/linkedin.svg" href="" style={{height:33}}/></a>
-    </Link>
-    <Link>
-      <a href="https://www.behance.net/chisakinakamura1" target="_blank"><Img src="/sns/behance.svg" href="" style={{height:43}}/></a>
-    </Link>
+    <Links>
+      <a href="https://github.com/Hoppeyyy2" target="_blank"><Img src={theme === "light" ? "/sns/github.svg":"/sns/Dgithub.svg"} style={{height:39}}/></a>
+    </Links>
+    <Links>
+      <a href="https://www.linkedin.com/in/chisaki-nakamura-951b55229/" target="_blank"><Img src={theme === "light" ? "/sns/linkedin.svg":"/sns/Dlinkedin.svg"} style={{height:33}}/></a>
+    </Links>
+    <Links>
+      <a href="https://www.behance.net/chisakinakamura1" target="_blank"><Img src={theme === "light" ? "/sns/behance.svg":"/sns/Dbehance.svg"} style={{height:43}}/></a>
+    </Links>
   </LinksCont>
   </MobCont>
-:<div></div>}
 </Outside>
 }
 

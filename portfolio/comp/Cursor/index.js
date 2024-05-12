@@ -17,26 +17,21 @@ border: 1.5px solid ${(props)=>props.letter};
 background:${(props)=>props.Outline};
 mix-blend-mode: ${(props)=>props.blend};
 border-radius:50%;
-width:50px;
-height:50px;
+width:${(props)=>props.width};
+height:${(props)=>props.height};
 position:fixed;
-left:-20px;
-top:-20px;
+left:${(props)=>props.left};
+top:${(props)=>props.top};
 pointer-events: none;
-transform:translate(-50%,-50%);
 transition:.25s linear;
+transform:translate(-50%,-50%);
 z-index:1000;
-
-:hover{
-  background-color:${(props)=>props.letter};
-  transform:scale(1.5);
-}
 `;
 
 const Dot = styled.div`
 position:fixed;
-width:8px;
-height:8px;
+width:${(props)=>props.width};
+height:${(props)=>props.height};
 background-color:${(props)=>props.letter};
 mix-blend-mode: ${(props)=>props.blend};
 border-radius:50%;
@@ -44,19 +39,20 @@ transform:translate(-50%,-50%);
 pointer-events: none;
 transition:.1s;
 z-index:1000;
-:hover{
-  background:transparent;
-}
+
 `
 
-const Cursor = (
-  
-) =>{
+const Cursor = () =>{
+
   const { x, y } = useCursorPosition();
+  const [Cursor] = useContext(CursorContext);
+  const [isVisible, setIsVisible] = useState(false);
+
   var CursorFunc = function(){
     let currentCursorPos = {x: -999, y: -999};
     let cursor, cursor2;
-  
+    const INTERVAL_POSITION = 5;
+
     function setCurrentCursorProps (){
       cursor.style.transform = `translate(${currentCursorPos.x}px, ${currentCursorPos.y}px)`;
       cursor2.style.transform = `translate(${currentCursorPos.x}px, ${currentCursorPos.y}px)`;
@@ -65,19 +61,10 @@ const Cursor = (
     function updateCursor(){
       window.addEventListener("mousemove", event=>{
         currentCursorPos = {x: event.clientX, y: event.clientY};
+
       });
      
-      setInterval(setCurrentCursorProps);
-  
-      setInterval(()=>{
-        const delt = {
-          x: currentCursorPos.x,
-          y: currentCursorPos.y
-        }
-        setCurrentCursorProps();
-       
-        console.log(currentCursorPos);
-      });
+      setInterval(setCurrentCursorProps, INTERVAL_POSITION);
   
     }
 
@@ -89,13 +76,39 @@ const Cursor = (
   useEffect(()=>{
     CursorFunc()
 
-    return()=>{};
+    const handleMouseEnter = () => setIsVisible(true);
+    const handleMouseLeave = () => setIsVisible(false);
+    document.body.addEventListener("mouseenter", handleMouseEnter);
+    document.body.addEventListener("mouseleave", handleMouseLeave);
+    return () => {
+      document.body.removeEventListener("mouseenter",   handleMouseEnter);
+      document.body.removeEventListener("mouseleave", handleMouseLeave);
+    };
   },[]);
-
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
   return<Cont>
-    <Dot letter={letter[theme]} className="cursor2" blend={theme === "light"?"":"difference"}/> 
-    <Outline Outline={theme === "light"?"transparent":"#FFF4E3"} className="cursor" blend={theme === "light"?"":"difference"}/>
+    <Dot 
+    letter={letter[theme]} 
+    className="cursor2" 
+    blend={theme === "light"?"":"difference"}
+    width={Cursor.active === true?"0px":"8px"}
+    height={Cursor.active === true?"0px":"8px"}
+    style={{
+      opacity: isVisible && x > 1 ? 1 : 0
+    }}
+    /> 
+    <Outline 
+    Outline={theme === "light"?"transparent":"#FFF4E3"} 
+    className="cursor" 
+    blend={theme === "light"?"":"difference"}
+    width={Cursor.active === true?"50px":"30px"}
+    height={Cursor.active === true?"50px":"30px"}
+    left={Cursor.active === true?"-25px":"-11px"}
+    top={Cursor.active === true?"-25px":"-11px"}
+    style={{
+      opacity: isVisible && x > 1 ? 1 : 0,
+    }}
+    />
   </Cont>
 }
 

@@ -2,9 +2,10 @@ import styles from '@/styles/globals.css'
 import AppProvider from '@/utils/provider';
 import CursorContextProvider from "../utils/cursor_context";
 import Cursor from "../comp/Cursor";
+import { appWithTranslation } from 'next-i18next';
 import App from 'next/app';
 
-export default function MyApp({ Component, pageProps, children }) {
+function MyApp({ Component, pageProps, children }) {
   return <AppProvider>
     <CursorContextProvider>
       <Cursor/>
@@ -13,3 +14,5 @@ export default function MyApp({ Component, pageProps, children }) {
     </CursorContextProvider>
   </AppProvider>
 }
+
+export default appWithTranslation(MyApp)

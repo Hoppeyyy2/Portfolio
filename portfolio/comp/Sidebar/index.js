@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled, { keyframes } from 'styled-components';
 import {letter} from "@/utils/variables";
 import { useTheme } from "@/utils/provider";
+import useCursorHandlers from "../../hooks/useCursorHandlers";
 
 const appear = keyframes`
 from{
@@ -62,17 +63,19 @@ github_src="/sns/github.svg",
 linkedin_src="/sns/linkedin.svg",
 behance_src="/sns/behance.svg",
 })=>{
-const { theme, setTheme } = useTheme();
+const { theme } = useTheme();
+const cursorHandlers = useCursorHandlers();
+
 return<Cont>
 <Line letter={letter[theme]}/>
 <LinksCont>
-  <Link>
+  <Link {...cursorHandlers} className="show-cursor">
     <a href="https://github.com/Hoppeyyy2" target="_blank"><Img src={github_src} style={{height:39}}/></a>
   </Link>
-  <Link>
+  <Link {...cursorHandlers} className="show-cursor">
     <a href="https://www.linkedin.com/in/chisaki-nakamura-951b55229/" target="_blank"><Img src={linkedin_src} style={{height:33}}/></a>
   </Link>
-  <Link>
+  <Link {...cursorHandlers} className="show-cursor">
     <a href="https://www.behance.net/chisakinakamura1" target="_blank"><Img src={behance_src} style={{height:43}}/></a>
   </Link>
 </LinksCont>
