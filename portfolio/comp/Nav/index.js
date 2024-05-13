@@ -5,9 +5,10 @@ import styled, { keyframes } from 'styled-components';
 import Header from '../Header';
 import LanguageSwitcher from '../LanguageSwitcher';
 import { Spin as Hamburger } from 'hamburger-react';
-import {bg} from "@/utils/variables";
+import {bg, letter} from "@/utils/variables";
 import { useTheme } from "@/utils/provider";
 import useCursorHandlers from "../../hooks/useCursorHandlers";
+import MobThemeSwitcher from "../MobThemeSwitcher";
 
 const Outside = styled.div`
 background:${(props)=> props.bg};
@@ -58,6 +59,8 @@ const PhoneNav = styled.div`
 display:none;
 @media only screen and (max-width: 600px) {
   display:flex;
+  align-items:center;
+  justify-content:center;
 }
 `;
 const MobCont = styled.ul`
@@ -102,7 +105,8 @@ animation:${appear} 1.5s ease-in;
 `;
 
 const Nav = ({
-
+handleColor=()=>{},
+checked
 })=>{
   const [isOpen, setOpen] = useState(false);
   const { theme } = useTheme();
@@ -131,7 +135,8 @@ return<Outside bg={bg[theme]}>
   <Header  name="CONTACT" href="/#contact" paddingRight="60px"/>
   <LanguageSwitcher/>
   </MainNav>
-  <PhoneNav>
+  <PhoneNav  {...cursorHandlers} >
+    <MobThemeSwitcher  handleColor={handleColor} checked={theme === "light"? false:true} sunColor={theme === "light"? "#030B19":"#FFF4E3"} moonColor={theme === "light"? "#030B19":"#FFF4E3"}/>
     <Hamburger toggled={isOpen} toggle={setOpen} color={theme === "light"? "#030B19":"#FFF4E3"} size={25} duration={0.8} rounded label="Show menu"/>
   </PhoneNav>
 </Cont>
@@ -142,13 +147,13 @@ return<Outside bg={bg[theme]}>
   <LanguageSwitcher/>
   <LinksCont>
     <Links>
-      <a href="https://github.com/Hoppeyyy2" target="_blank"><Img src={theme === "light" ? "/sns/github.svg":"/sns/Dgithub.svg"} style={{height:39}}/></a>
+      <a href="https://github.com/Hoppeyyy2" target="_blank"  {...cursorHandlers} ><Img src={theme === "light" ? "/sns/github.svg":"/sns/Dgithub.svg"} style={{height:39}}/></a>
     </Links>
     <Links>
-      <a href="https://www.linkedin.com/in/chisaki-nakamura-951b55229/" target="_blank"><Img src={theme === "light" ? "/sns/linkedin.svg":"/sns/Dlinkedin.svg"} style={{height:33}}/></a>
+      <a href="https://www.linkedin.com/in/chisaki-nakamura-951b55229/" target="_blank"  {...cursorHandlers} ><Img src={theme === "light" ? "/sns/linkedin.svg":"/sns/Dlinkedin.svg"} style={{height:33}}/></a>
     </Links>
     <Links>
-      <a href="https://www.behance.net/chisakinakamura1" target="_blank"><Img src={theme === "light" ? "/sns/behance.svg":"/sns/Dbehance.svg"} style={{height:43}}/></a>
+      <a href="https://www.behance.net/chisakinakamura1" target="_blank"  {...cursorHandlers} ><Img src={theme === "light" ? "/sns/behance.svg":"/sns/Dbehance.svg"} style={{height:43}}/></a>
     </Links>
   </LinksCont>
   </MobCont>

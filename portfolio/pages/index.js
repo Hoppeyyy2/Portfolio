@@ -110,6 +110,7 @@ const Home =() =>{
   const { t } = useTranslation('common');
 
   const onChangeColor = () => {
+  
     if(color === false){
       setTheme(theme === "dark" ? "light":"dark");
       setColor(true);
@@ -119,7 +120,6 @@ const Home =() =>{
     }
   };
 
-
   return (
     <>
       <Head>
@@ -128,7 +128,7 @@ const Home =() =>{
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo_pink.svg" />
       </Head>
-      <Nav/>
+      <Nav handleColor={()=>onChangeColor()} />
       <MainStructure>
         {/*---------------------------- SNS Links ---------------------------*/}
       <LeftSideCont>

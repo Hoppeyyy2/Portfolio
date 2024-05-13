@@ -59,8 +59,8 @@ const Header = ({
 const { theme } = useTheme();
 const cursorHandlers = useCursorHandlers();
 
-return<BtnCont paddingRight={paddingRight} {...cursorHandlers} className="show-cursor">
-<Link href={href} onClick={onClick}>
+return<BtnCont paddingRight={paddingRight}>
+<Link href={href} onClick={onClick} {...cursorHandlers} className="show-cursor">
   <Btn
   color={letter[theme]}
   >

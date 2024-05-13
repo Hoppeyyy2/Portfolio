@@ -1,9 +1,10 @@
 import useCursorPosition from "../../hooks/useCursorPosition";
 import React, {useContext, useState,useEffect } from "react";
 import { CursorContext } from "../../utils/cursor_context";
-import styled, {keyframes} from 'styled-components';
+import styled from 'styled-components';
 import {letter} from "@/utils/variables";
 import { useTheme } from "@/utils/provider";
+
 
 const Cont = styled.div`
 width:100px;
@@ -47,7 +48,7 @@ const Cursor = () =>{
   const { x, y } = useCursorPosition();
   const [Cursor] = useContext(CursorContext);
   const [isVisible, setIsVisible] = useState(false);
-
+  const { theme } = useTheme();
   var CursorFunc = function(){
     let currentCursorPos = {x: -999, y: -999};
     let cursor, cursor2;
@@ -85,7 +86,6 @@ const Cursor = () =>{
       document.body.removeEventListener("mouseleave", handleMouseLeave);
     };
   },[]);
-  const { theme } = useTheme();
   return<Cont>
     <Dot 
     letter={letter[theme]} 

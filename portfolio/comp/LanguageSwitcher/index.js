@@ -66,7 +66,7 @@ const LanguageSwitcher = () =>{
   const { theme } = useTheme();
   const router = useRouter();
   const cursorHandlers = useCursorHandlers();
-  const data = [{value:"en", label:"EN"},{value:"zh-Hant", label:"CH"},{value:"ja", label:"JP"}]
+  const data = [{id:0, value:"en", label:"EN"},{id:1, value:"zh-Hant", label:"CH"},{id:2, value:"ja", label:"JP"}]
   
   const handleChange = (e) =>{
   
@@ -89,7 +89,7 @@ const LanguageSwitcher = () =>{
       bg={bg[theme]}
       arrowImg={theme === "light" ?"url(/lang_dark.svg)":"url(/lang_light.svg)"}
       >
-        {data.map((item)=><Option value={item.value} label={item.label}></Option>)}
+        {data.map((item)=><Option key={item.id} value={item.value} label={item.label}></Option>)}
       </Select>
     </Cont>
   );

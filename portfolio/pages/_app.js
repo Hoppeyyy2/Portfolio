@@ -4,11 +4,16 @@ import CursorContextProvider from "../utils/cursor_context";
 import Cursor from "../comp/Cursor";
 import { appWithTranslation } from 'next-i18next';
 import App from 'next/app';
-
+import { useEffect, useState } from 'react';
+import { isMobile } from 'react-device-detect';
 function MyApp({ Component, pageProps, children }) {
+  const [isClient, setIsClient] = useState(false)
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
   return <AppProvider>
     <CursorContextProvider>
-      <Cursor/>
+      {isClient && isMobile? null:<Cursor/>}
       {children}
     <Component {...pageProps} />
     </CursorContextProvider>

@@ -1,8 +1,8 @@
 import ReactCurvedText from 'react-curved-text';
-import React, { useState } from 'react';
-import styled, { keyframes } from 'styled-components';
-import styles from '@/styles/Home.module.css'
-import { useTheme } from "@/utils/provider";
+import React  from 'react';
+import styled from 'styled-components';
+import styles from '@/styles/Home.module.css';
+import useCursorHandlers from "../../hooks/useCursorHandlers";
 
 const Cont = styled.div`
 display:flex;
@@ -18,9 +18,9 @@ const CurveText = ({
   Textcolor,
   Text,
 }) => {
-
+  const cursorHandlers = useCursorHandlers();
     return (
-    <Cont onClick={handleColor}>
+    <Cont onClick={handleColor} {...cursorHandlers} className="show-cursor">
       <ReactCurvedText
       width="180"
       height="180"
