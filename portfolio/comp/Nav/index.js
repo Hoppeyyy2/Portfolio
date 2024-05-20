@@ -124,7 +124,7 @@ const onLinkClick = () =>{
   //console.log(isOpen);
 return<Outside bg={navbg[theme]}>
 <Cont>
-  <Link href="/#home" {...cursorHandlers} className="show-cursor" style={{padding:"1.5rem"}}><Img src={theme === "light"? "/logo.svg":"/logo_dark.svg"}/></Link>
+  <Link href="/#home" {...cursorHandlers} className="show-cursor" style={{padding:"1.5rem", paddingLeft:"0rem"}}><Img src={theme === "light"? "/logo.svg":"/logo_dark.svg"}/></Link>
   <MainNav>
   <Header  name="ABOUT" href="/#about" fm={fm}/>
   <Header  name="WORKS" href="/#works" fm={fm}/>
@@ -135,7 +135,7 @@ return<Outside bg={navbg[theme]}>
     <MobThemeSwitcher  handleColor={handleColor} checked={theme === "light"? false:true} sunColor={para[theme]} moonColor={para[theme]}/>
     <Hamburger toggled={isOpen} toggle={setOpen} color={para[theme]} size={25} duration={0.8} rounded label="Show menu"/>
   </PhoneNav>
-  <motion.div style={{scaleX:scrollYProgress, position:"fixed", top:87,left:0, right:0, height:"2px",transformOrigin:"0%", background:progress[theme],}}/>
+  <motion.div style={{scaleX:scrollYProgress, position:"fixed", top:88,left:0, right:0, height:"1px",transformOrigin:"0%", background:progress[theme],}}/>
 </Cont>
   <MobCont bg={navbg[theme]} height={height} width={width} display={display}>
   <Header  name="ABOUT" href="/#about" onClick={onLinkClick} fm={fm}/>
