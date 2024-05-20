@@ -3,8 +3,7 @@ import { useRouter } from 'next/router';
 import {bg,letter} from "@/utils/variables";
 import { useTheme } from "@/utils/provider";
 import useCursorHandlers from "../../hooks/useCursorHandlers";
-import { useState, useEffect } from 'react';
-import { MotionProps, Variants } from "framer-motion";
+
 
 const appear = keyframes`
 from{
@@ -60,6 +59,7 @@ font-family:'Actor',sans-serif;
 font-weight:200;
 font-size:14px;
 opacity:0.55;
+
 `;
 
 const LanguageSwitcher = () =>{

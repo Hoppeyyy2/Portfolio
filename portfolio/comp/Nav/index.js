@@ -3,50 +3,45 @@ import * as React from 'react';
 import Link from 'next/link';
 import styled, { keyframes } from 'styled-components';
 import Header from '../Header';
-import LanguageSwitcher from '../LanguageSwitcher';
+import LanguageSwitcher from '../LanguageSwitcher/index2';
 import { Spin as Hamburger } from 'hamburger-react';
-import {bg, letter} from "@/utils/variables";
+import {navbg,para,detail,progress} from "@/utils/variables";
 import { useTheme } from "@/utils/provider";
 import useCursorHandlers from "../../hooks/useCursorHandlers";
 import MobThemeSwitcher from "../MobThemeSwitcher";
-
+import { BiLogoLinkedin } from "react-icons/bi";
+import { AiFillGithub } from "react-icons/ai";
+import { PiNotionLogoFill } from "react-icons/pi";
+import { motion, useScroll } from "framer-motion";
 const Outside = styled.div`
 background:${(props)=> props.bg};
-padding-top:1rem;
+width:100vw;
 position:fixed;
 top:0;
-left:50px;
-right:50px;
 z-index:1;
-@media only screen and (max-width: 600px) {
-padding-top:0.5rem;
-left:20px;
-right:20px;
-
-}
 `;
 const Cont = styled.div`
 display:flex;
 flex-direction:row;
 justify-content:space-between;
-align-items:center;
+align-items:flex-start;
+padding:0.7em 2em;
+padding-left:0.5em;
 @media only screen and (max-width: 600px) {
-  padding:0;
-  padding-top:10px;
+padding:1em;
+padding-bottom:0.4em;
+padding-left:0em;
+align-items:center;
 }
 `;
+
 const Img = styled.img`
 display:flex;
 flex-direction:row;
-width:30px;
-height:30px;
+transform:scale(0.7);
 @media only screen and (max-width: 600px) {
-width:35px;
-height:35px;
 }
-:hover{
-  opacity:0.8;
-}
+
 `;
 const MainNav = styled.div`
 display:flex;
@@ -71,7 +66,8 @@ position:absolute;
 left:0;
 z-index:1;
 flex-direction:column;
-justify-content:center;
+padding-top:2rem;
+justify-content:flex-start;
 background:${(props)=> props.bg};
 @media only screen and (min-width: 600px) {
   display:none;
@@ -106,12 +102,12 @@ animation:${appear} 1.5s ease-in;
 
 const Nav = ({
 handleColor=()=>{},
-checked
+fm
 })=>{
   const [isOpen, setOpen] = useState(false);
   const { theme } = useTheme();
   const cursorHandlers = useCursorHandlers();
-
+  const { scrollYProgress } = useScroll();
   var height = 0, width = 0, display = "none";
   if(isOpen === true){
     height="100vh";
@@ -126,34 +122,42 @@ const onLinkClick = () =>{
   setOpen(false);
 }
   //console.log(isOpen);
-return<Outside bg={bg[theme]}>
+return<Outside bg={navbg[theme]}>
 <Cont>
-  <Link href="/#home" {...cursorHandlers} className="show-cursor"><Img src="/logo_pink.svg"/></Link>
+  <Link href="/#home" {...cursorHandlers} className="show-cursor" style={{padding:"1.5rem"}}><Img src={theme === "light"? "/logo.svg":"/logo_dark.svg"}/></Link>
   <MainNav>
-  <Header  name="ABOUT" href="/#about"/>
-  <Header  name="WORKS" href="/#works"/>
-  <Header  name="CONTACT" href="/#contact" paddingRight="60px"/>
-  <LanguageSwitcher/>
+  <Header  name="ABOUT" href="/#about" fm={fm}/>
+  <Header  name="WORKS" href="/#works" fm={fm}/>
+  <Header  name="CONTACT" href="/#contact" paddingRight="60px" fm={fm}/>
+  <LanguageSwitcher fm={fm}/>
   </MainNav>
   <PhoneNav  {...cursorHandlers} >
-    <MobThemeSwitcher  handleColor={handleColor} checked={theme === "light"? false:true} sunColor={theme === "light"? "#030B19":"#FFF4E3"} moonColor={theme === "light"? "#030B19":"#FFF4E3"}/>
-    <Hamburger toggled={isOpen} toggle={setOpen} color={theme === "light"? "#030B19":"#FFF4E3"} size={25} duration={0.8} rounded label="Show menu"/>
+    <MobThemeSwitcher  handleColor={handleColor} checked={theme === "light"? false:true} sunColor={para[theme]} moonColor={para[theme]}/>
+    <Hamburger toggled={isOpen} toggle={setOpen} color={para[theme]} size={25} duration={0.8} rounded label="Show menu"/>
   </PhoneNav>
+  <motion.div style={{scaleX:scrollYProgress, position:"fixed", top:87,left:0, right:0, height:"2px",transformOrigin:"0%", background:progress[theme],}}/>
 </Cont>
-  <MobCont bg={bg[theme]} height={height} width={width} display={display}>
-  <Header  name="ABOUT" href="/#about" onClick={onLinkClick}/>
-  <Header  name="WORKS" href="/#works" onClick={onLinkClick}/>
-  <Header  name="CONTACT" href="/#contact" onClick={onLinkClick}/>
-  <LanguageSwitcher/>
+  <MobCont bg={navbg[theme]} height={height} width={width} display={display}>
+  <Header  name="ABOUT" href="/#about" onClick={onLinkClick} fm={fm}/>
+  <Header  name="WORKS" href="/#works" onClick={onLinkClick} fm={fm}/>
+  <Header  name="CONTACT" href="/#contact" onClick={onLinkClick} fm={fm}/>
+  <LanguageSwitcher fm={fm}/>
   <LinksCont>
-    <Links>
-      <a href="https://github.com/Hoppeyyy2" target="_blank"  {...cursorHandlers} ><Img src={theme === "light" ? "/sns/github.svg":"/sns/Dgithub.svg"} style={{height:39}}/></a>
+    <Links >
+    <a href="https://www.linkedin.com/in/chisaki-nakamura-951b55229/" target="_blank"  {...cursorHandlers} >
+      <BiLogoLinkedin style={{color:para[theme], width:"25px", height:"25px"}}/>
+      </a>
     </Links>
     <Links>
-      <a href="https://www.linkedin.com/in/chisaki-nakamura-951b55229/" target="_blank"  {...cursorHandlers} ><Img src={theme === "light" ? "/sns/linkedin.svg":"/sns/Dlinkedin.svg"} style={{height:33}}/></a>
+      <a href="https://github.com/Hoppeyyy2" target="_blank"  {...cursorHandlers} >
+      <AiFillGithub style={{color:para[theme],width:"25px", height:"25px"}}/>
+      </a>
     </Links>
     <Links>
-      <a href="https://www.behance.net/chisakinakamura1" target="_blank"  {...cursorHandlers} ><Img src={theme === "light" ? "/sns/behance.svg":"/sns/Dbehance.svg"} style={{height:43}}/></a>
+      {/* Notionのページ作る　*/}
+      <a href="" target="_blank"  {...cursorHandlers} >
+      <PiNotionLogoFill style={{color:para[theme],width:"25px", height:"25px"}}/>
+      </a>
     </Links>
   </LinksCont>
   </MobCont>

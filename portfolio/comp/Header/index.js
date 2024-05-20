@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled, { keyframes } from 'styled-components';
 import Link from 'next/link';
-import {letter} from "@/utils/variables";
+import {detail,para} from "@/utils/variables";
 import { useTheme } from "@/utils/provider";
 import useCursorHandlers from "../../hooks/useCursorHandlers";
 
@@ -25,22 +25,15 @@ padding:2.5rem;
 `;
 
 const Btn = styled.h3`
-font-family:'Actor',sans-serif;
-font-weight:200;
+font-family:${(props)=>props.fm};
+font-weight:400;
 font-size:14px;
 color:${(props)=>props.color};
-opacity:0.55;
-:link{
-  opacity:0.55;
-}
-:visited{
-  opacity:1;
-}
 :active{
-  opacity:1;
+color:${(props)=>props.active};
 }
 :hover{
-opacity:1;
+color:${(props)=>props.active};
 }
 
 @media only screen and (max-width: 600px) {
@@ -54,6 +47,7 @@ const Header = ({
   href="/",
   name="WORKS",
   paddingRight="0",
+  fm,
   onClick=()=>{},
 })=>{
 const { theme } = useTheme();
@@ -62,7 +56,9 @@ const cursorHandlers = useCursorHandlers();
 return<BtnCont paddingRight={paddingRight}>
 <Link href={href} onClick={onClick} {...cursorHandlers} className="show-cursor">
   <Btn
-  color={letter[theme]}
+  color={detail[theme]}
+  active={para[theme]}
+  fm={fm}
   >
     {name}
   </Btn>
