@@ -1,10 +1,11 @@
+import react, {useState} from "react";
 import styled, { keyframes } from 'styled-components';
 import { useRouter } from 'next/router';
-import {bg,letter} from "@/utils/variables";
+import {bg,detail,para,accentbg} from "@/utils/variables";
 import { useTheme } from "@/utils/provider";
 import useCursorHandlers from "../../hooks/useCursorHandlers";
-
-
+import { GrLanguage } from "react-icons/gr";
+import { IoIosArrowDown } from "react-icons/io";
 const appear = keyframes`
 from{
   opacity:0;
@@ -16,83 +17,124 @@ to{
 }
 `;
 const Cont = styled.div`
-width:100%;
-padding:1.3rem;
-
+display:flex;
+flex-direction:column;
+padding:1.1rem;
+padding-left:0;
+@media only screen and (max-width: 700px) {
+  padding:0.5rem;
+  padding-top:1.1rem;
+  padding-left:0;
+}
 @media only screen and (max-width: 600px) {
-  padding:2.3rem;
-  }
+padding:2.3rem;
+}
 `;
-const Select = styled.select`
-border:none;
+const Select = styled.div`
+display: flex;
+padding:0.4em 1em;
+border-radius:8px;
+align-items:center;
+cursor: pointer;
+justify-content:center;
 color:${(props)=>props.color};
-background:${(props)=>props.bg};
-padding:0.2em;
-padding-right:2rem;
-font-family:'Actor',sans-serif;
-font-weight:200;
-font-size:14px;
-opacity:0.55;
-outline: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  &::-ms-expand { display: none };
-background-image:${(props)=>props.arrowImg};
-background-repeat: no-repeat;
-background-position-y: center;
-background-position-x: 100%;
-background-size: 0.8rem auto;
+:hover{
+  color:${(props)=>props.active};
+  }
+@media only screen and (max-width: 700px) {
+    padding:0.4rem;
+}
 @media only screen and (max-width: 600px) {
-  font-size:18px;
   position: relative;
   animation:${appear} 1.5s ease-in;
 }
-
-:hover{
-  opacity:1;
-  }
 `;
 
-const Option = styled.option`
-font-family:'Actor',sans-serif;
-font-weight:200;
+const Active = styled.p`
+font-family:${(props)=>props.fm};
+font-weight:300;
+font-size: 14px;
+letter-spacing:1px;
+`;
+const Options = styled.ul`
+position: absolute;
+padding:10px 25px;
+border-radius:8px;
+background:${(props)=>props.bg};
+box-shadow: 0 0 3px ${(props)=>props.border};
+top:4.5em;
+@media only screen and (max-width: 600px) {
+  position: relative;
+  padding:10px;
+  top:0.5em;
+  display:flex;
+  justify-content:center;
+}
+`;
+
+const Option = styled.li`
+display:flex;
+height: 2em;
+cursor: pointer;
+padding: 0 1.3em;
+border-radius:8px;
+align-items: center;
+font-family:${(props)=>props.fm};
 font-size:14px;
-opacity:0.55;
-
+letter-spacing:1px;
+font-weight:300;
+color:${(props)=>props.color};
+:hover{
+background:${(props)=>props.bg};
+}
 `;
 
-const LanguageSwitcher = () =>{
+const LanguageSwitcher2 = ({
+  fm
+}) =>{
   const { theme } = useTheme();
   const router = useRouter();
   const cursorHandlers = useCursorHandlers();
   const data = [{id:0, value:"en", label:"EN"},{id:1, value:"zh-Hant", label:"CH"},{id:2, value:"ja", label:"JP"}]
-  
+  const [active, setActive] = useState(data[0].label);
+  const [open, setOpen] = useState(false);
+  const OpenBox = () =>{
+    if(open === false){
+      setOpen(true)
+    }else if(open === true){
+      setOpen(false)
+    }
+  }
   const handleChange = (e) =>{
-  
+    setActive(e.target.innerHTML)
+    setOpen(false)
     router.push(
       {
         pathname: router.pathname,
         query: router.query,
-
       },
       null,
-      { locale: e.target.value },
+   { locale: e.target.attributes[0].value },
     )
   }
 
   return (
     <Cont {...cursorHandlers} className="show-cursor">
       <Select
-      onChange={handleChange}
-      color={letter[theme]}
-      bg={bg[theme]}
-      arrowImg={theme === "light" ?"url(/lang_dark.svg)":"url(/lang_light.svg)"}
+      color={detail[theme]}
+      active={para[theme]}
+      onClick={OpenBox}
       >
-        {data.map((item)=><Option key={item.id} value={item.value} label={item.label}></Option>)}
+        <GrLanguage style={{marginRight:"0.8em"}}/>
+        <Active fm={fm}>{active}</Active>
+        <IoIosArrowDown style={{transform:open === true?"rotate(-180deg)":"", marginLeft:"0.8em"}}/>
       </Select>
+      {open === true?
+      <Options bg={bg[theme]} border={detail[theme]}>
+        {data.map((item)=><Option value={item.value} onClick={handleChange} color={para[theme]}  bg={accentbg[theme]} fm={fm}>{item.label}</Option>)}
+      </Options>:null}
     </Cont>
   );
 }
 
-export default LanguageSwitcher;
+export default LanguageSwitcher2;

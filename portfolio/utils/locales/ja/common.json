@@ -1,4 +1,14 @@
 {
+  "FontFamily":{
+    "Header":"'Kiwi Maru', sans-serif",
+    "Content":"'Hiragino Kaku Gothic ProN W3','Hiragino Kaku Gothic Pro W3','Meiryo', sans-serif"
+
+  },
+  "Hero":{
+    "MyName":"中村千咲",
+    "Content":"台湾在住のUI・UX　デザイナー｜フロントエンドエンジニアです。クライアントの「　アイディア　」を具現化し、ユーザーの「　使いやすい　」をデザイン・実装する事を心掛けています。",
+    "Button_text":"こんにちは 👋🏻"
+  },
   "Common":{
  
   }

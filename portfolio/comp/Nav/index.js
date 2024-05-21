@@ -1,14 +1,14 @@
-import react, {useState} from 'react';
+import {useState} from 'react';
 import * as React from 'react';
 import Link from 'next/link';
 import styled, { keyframes } from 'styled-components';
 import Header from '../Header';
-import LanguageSwitcher from '../LanguageSwitcher/index2';
+import LanguageSwitcher from '../LanguageSwitcher';
 import { Spin as Hamburger } from 'hamburger-react';
-import {navbg,para,detail,progress} from "@/utils/variables";
+import {navbg,para,progress,detail} from "@/utils/variables";
 import { useTheme } from "@/utils/provider";
 import useCursorHandlers from "../../hooks/useCursorHandlers";
-import MobThemeSwitcher from "../MobThemeSwitcher";
+import ThemeSwitcher from "../ThemeSwitcher";
 import { BiLogoLinkedin } from "react-icons/bi";
 import { AiFillGithub } from "react-icons/ai";
 import { PiNotionLogoFill } from "react-icons/pi";
@@ -105,6 +105,9 @@ handleColor=()=>{},
 fm
 })=>{
   const [isOpen, setOpen] = useState(false);
+  const [aboutColor, setAboutColor] = useState(false);
+  const [workColor, setWorkColor] = useState(false);
+  const [contactColor, setContactColor] = useState(false);
   const { theme } = useTheme();
   const cursorHandlers = useCursorHandlers();
   const { scrollYProgress } = useScroll();
@@ -121,26 +124,53 @@ fm
 const onLinkClick = () =>{
   setOpen(false);
 }
+const AboutColorChange = ()=>{
+  if(aboutColor === false){
+    setAboutColor(true);
+    setWorkColor(false);
+    setContactColor(false);
+  }
+}
+const WorkColorChange = ()=>{
+  if(workColor === false){
+    setWorkColor(true);
+    setAboutColor(false);
+    setContactColor(false);
+  }
+}
+const ContactColorChange = ()=>{
+  if(contactColor === false){
+    setContactColor(true);
+    setAboutColor(false);
+    setWorkColor(false);
+  }
+}
+const LogoClick = ()=>{
+  setContactColor(false);
+  setAboutColor(false);
+  setWorkColor(false);
+}
   //console.log(isOpen);
 return<Outside bg={navbg[theme]}>
 <Cont>
-  <Link href="/#home" {...cursorHandlers} className="show-cursor" style={{padding:"1.5rem", paddingLeft:"0rem"}}><Img src={theme === "light"? "/logo.svg":"/logo_dark.svg"}/></Link>
+  <Link href="/#home" {...cursorHandlers} className="show-cursor" style={{padding:"1.5rem", paddingLeft:"0rem"}} onClick={LogoClick}><Img src={theme === "light"? "/logo.svg":"/logo_dark.svg"}/></Link>
   <MainNav>
-  <Header  name="ABOUT" href="/#about" fm={fm}/>
-  <Header  name="WORKS" href="/#works" fm={fm}/>
-  <Header  name="CONTACT" href="/#contact" paddingRight="60px" fm={fm}/>
+  <Header  name="ABOUT" href="/#about" fm={fm} paddingLeft="0px" onClick={AboutColorChange} color={aboutColor === false? detail[theme]:para[theme]}/>
+  <Header  name="WORKS" href="/#works" fm={fm} onClick={WorkColorChange} color={workColor === false? detail[theme]:para[theme]}/>
+  <Header  name="CONTACT" href="/#contact" paddingRight="20px" fm={fm} onClick={ContactColorChange} color={contactColor === false? detail[theme]:para[theme]}/>
   <LanguageSwitcher fm={fm}/>
+  <ThemeSwitcher  handleColor={handleColor} checked={theme === "light"? false:true} size={20} sunColor={para[theme]} moonColor={para[theme]}/>
   </MainNav>
   <PhoneNav  {...cursorHandlers} >
-    <MobThemeSwitcher  handleColor={handleColor} checked={theme === "light"? false:true} sunColor={para[theme]} moonColor={para[theme]}/>
+    <ThemeSwitcher  handleColor={handleColor} checked={theme === "light"? false:true} size={30} sunColor={para[theme]} moonColor={para[theme]}/>
     <Hamburger toggled={isOpen} toggle={setOpen} color={para[theme]} size={25} duration={0.8} rounded label="Show menu"/>
   </PhoneNav>
-  <motion.div style={{scaleX:scrollYProgress, position:"fixed", top:88,left:0, right:0, height:"1px",transformOrigin:"0%", background:progress[theme],}}/>
+  <motion.div style={{scaleX:scrollYProgress, position:"fixed", top:89,left:0, right:0, height:"1px",transformOrigin:"0%", background:progress[theme],}}/>
 </Cont>
   <MobCont bg={navbg[theme]} height={height} width={width} display={display}>
-  <Header  name="ABOUT" href="/#about" onClick={onLinkClick} fm={fm}/>
-  <Header  name="WORKS" href="/#works" onClick={onLinkClick} fm={fm}/>
-  <Header  name="CONTACT" href="/#contact" onClick={onLinkClick} fm={fm}/>
+  <Header  name="ABOUT" href="/#about" onClick={onLinkClick} fm={fm} color={detail[theme]}/>
+  <Header  name="WORKS" href="/#works" onClick={onLinkClick} fm={fm} color={detail[theme]}/>
+  <Header  name="CONTACT" href="/#contact" onClick={onLinkClick} fm={fm} color={detail[theme]}/>
   <LanguageSwitcher fm={fm}/>
   <LinksCont>
     <Links >

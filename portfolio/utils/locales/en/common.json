@@ -1,11 +1,17 @@
 
 {
   "FontFamily":{
-    "Header":"Des Morgan, sans-serif",
-    "Content":"Actor, sans-serif"
+    "Header":"'Des Morgan', sans-serif",
+    "Content":"'Lato', sans-serif"
 
   },
+  "Hero":{
+    "MyName":"Chisaki Nakamura",
+    "Content":"I’m a passionate   Frontend developer  |  UI UX  Designer  based in Taiwan. I specialize in user-centered, cutting-edge, and beautiful interfaces with responsive web design. In terms of implementation, I focus on code readability and its maintainability.",
+    "Button_text":"Hi, Chisaki 👋🏻"
+  },
   "Common":{
-
+  
   }
+
 }
