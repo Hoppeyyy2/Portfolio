@@ -10,6 +10,33 @@
     "Content":"I’m a passionate   Frontend developer  |  UI UX  Designer  based in Taiwan. I specialize in user-centered, cutting-edge, and beautiful interfaces with responsive web design. In terms of implementation, I focus on code readability and its maintainability.",
     "Button_text":"Hi, Chisaki 👋🏻"
   },
+  "About":{
+    "Basic_Info":"Basic Informaiton",
+    "Nationality":"Nationality",
+    "Japan":"Japanese",
+    "Language":"Language",
+    "Japanese":"Japanese",
+    "English":"English",
+    "Chinese":"Chinese",
+    "Personality":"Personality",
+    "Curiosity":"Curiosity",
+    "Attentive":"Attentive",
+    "Supportive":"Supportive",
+    "Behavior":"Behavior",
+    "Detail_oriented":"Detail-oriented",
+    "Enthusiatic":"Enthusiastic",
+    "Collaborating":"Collaborating",
+
+    "Dev_Skill":"Development Tools",
+    "Design_Skill":"Design Tools",
+    "Education":"Education",
+    "Edu_canada":"Canada",
+    "Edu_japan":"Japan",
+    "Bcit":"British Columbia Institute of Technology",
+    "Bcit_major":"Major in Digital Design and Development",
+    "Kwu":"Kyoritsu Women’s University",
+    "Kwu_major":"Major in English Literature"
+  },
   "Common":{
   
   }

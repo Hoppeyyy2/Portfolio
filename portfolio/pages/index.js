@@ -2,6 +2,7 @@ import Head from 'next/head';
 import styled from "styled-components";
 import Nav from 'comp/Nav';
 import Hero from 'comp/Hero';
+import About from 'comp/About';
 import styles from '@/styles/Home.module.css';
 import { useEffect, useState, useContext,useCallback } from "react";
 import { useTheme } from "@/utils/provider";
@@ -10,22 +11,18 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 
 const MainStructure = styled.div`
-display:flex;
-flex-direction:row;
-background:${(props)=> props.bg};
-padding:0 40px;
 width:100vw;
+display:flex;
+flex-direction:column;
+position:relative;
+top:89px;
+box-sizing: border-box;
+background:${(props)=> props.bg};
+padding:3rem 6rem;
+@media only screen and (max-width: 600px) {
+  padding:3rem;
+}
 `
-const Main = styled.div`
-display: flex;
-flex-direction: column;
-padding:1.0rem;
-min-height: 100vh;
-background:${(props)=>props.bg};
-width:100%;
-`
-
-
 
 const Home =() =>{
   const [color, setColor] = useState(true);
@@ -59,16 +56,34 @@ const Home =() =>{
       <Hero fm={t('FontFamily.Header')} parafm={t('FontFamily.Content')} heading={t('Hero.MyName')} content={t('Hero.Content')} text_content={t('Hero.Button_text')} Btnfm={t('FontFamily.Content')}/>
       <MainStructure bg={bg[theme]}>
       {/*---------------------------- Main Contents From Here ---------------------------*/}
-      <Main>
-      <div id="about"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-        About me
-        </div>
-      <div id="works"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-        Works</div>
-      <div id="contact"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-        contact</div>
-        <br/><br/><br/><br/><br/><br/><br/>
-      </Main>
+      <About 
+      content_fm={t('FontFamily.Content')}
+      basic_info={t('About.Basic_Info')} 
+      nationality={t('About.Nationality')}
+      japan={t('About.Japan')}
+      language={t('About.Language')}
+      japanese={t('About.Japanese')}
+      english={t('About.English')}
+      chinese={t('About.Chinese')}
+      personality={t('About.Personality')}
+      curiosity={t('About.Curiosity')}
+      attentive={t('About.Attentive')}
+      supportive={t('About.Supportive')}
+      behavior={t('About.Behavior')}
+      detail_oriented={t('About.Detail_oriented')}
+      enthusiatic={t('About.Enthusiatic')}
+      collaborating={t('About.Collaborating')}
+      dev_skill={t('About.Dev_Skill')}
+      design_skill={t('About.Design_Skill')}
+      education={t('About.Education')}
+      edu_canada={t('About.Edu_canada')}
+      edu_japan={t('About.Edu_japan')}
+      bcit={t('About.Bcit')}
+      bcit_major={t('About.Bcit_major')}
+      kwu={t('About.Kwu')}
+      kwu_major={t('About.Kwu_major')}
+      />
+
       {/*---------------------------- Main Contents Finish Here ---------------------------*/}
 
       </MainStructure>

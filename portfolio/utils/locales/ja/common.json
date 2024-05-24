@@ -9,6 +9,33 @@
     "Content":"台湾在住のUI・UX　デザイナー｜フロントエンドエンジニアです。クライアントの「　アイディア　」を具現化し、ユーザーの「　使いやすい　」をデザイン・実装する事を心掛けています。",
     "Button_text":"こんにちは 👋🏻"
   },
+  "About":{
+    "Basic_Info":"基本情報",
+    "Nationality":"国籍",
+    "Japan":"日本",
+    "Language":"対応言語",
+    "Japanese":"日本語",
+    "English":"英語",
+    "Chinese":"中国語",
+    "Personality":"性格",
+    "Curiosity":"好奇心旺盛",
+    "Attentive":"思慮深い",
+    "Supportive":"協調性がある",
+    "Behavior":"",
+    "Detail_oriented":"几帳面",
+    "Enthusiatic":"向上心がある",
+    "Collaborating":"協力的",
+
+    "Dev_Skill":"開発ツール",
+    "Design_Skill":"デザインツール",
+    "Education":"学歴",
+    "Edu_canada":"カナダ",
+    "Edu_japan":"日本",
+    "Bcit":"ブリティッシュコロンビア工科大学",
+    "Bcit_major":"デジタル設計開発科専攻",
+    "Kwu":"共立女子大学",
+    "Kwu_major":"英米文学専攻"
+  },
   "Common":{
  
   }

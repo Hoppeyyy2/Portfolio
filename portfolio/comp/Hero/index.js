@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import * as React from 'react';
 import { useTheme } from "@/utils/provider";
-import {accentbg, title} from "@/utils/variables";
+import {accentbg} from "@/utils/variables";
 import Intro from "comp/Intro";
 import Button from "comp/Button";
+
 const Cont = styled.div`
 position:relative;
 top:89px;
@@ -11,7 +12,6 @@ display:flex;
 flex-direction:column;
 width:100vw;
 background:${(props)=>props.bg};
-
 `;
 const Top = styled.div`
 display:flex;
@@ -25,13 +25,8 @@ padding-bottom:0;
 }
 @media only screen and (max-width: 600px) {
   padding:1rem;
-
+  padding-bottom:0;
 }
-`;
-const Bot = styled.div`
-display:flex;
-width:100vw;
-height:10vh;
 `;
 
 const HeroCont = styled.div`
@@ -56,8 +51,37 @@ max-width:100%;
 `;
 const ImgCont = styled.div`
 display:flex;
+justify-content:right;
+margin-top:-10rem;
+@media (min-width: 768px) and (max-width: 1024px) {
+  margin-top:-10rem;
+}
+@media screen and (min-width: 601px) and (max-width:767px){
+  margin-top:1rem;
+}
 
+@media only screen and (max-width: 600px) {
+  margin-top:1rem;
+}
 `;
+
+const Girl = styled.img`
+max-width:50%;
+@media (min-width: 768px) and (max-width: 1024px) {
+  max-width:45%;
+}
+@media screen and (min-width: 601px) and (max-width:767px){
+  max-width:100%;
+}
+
+@media only screen and (max-width: 600px) {
+max-width:100%;
+}
+`;
+
+
+
+
 const Hero = ({
   fm,
   Btnfm,
@@ -86,12 +110,9 @@ return<Cont id="home">
     />
     </HeroCont>
     <ImgCont>
-
+      <Girl src="/working_girl.svg"/>
     </ImgCont>
   </Top>
-  <Bot>
-
-  </Bot>
 </Cont>
 }
 
