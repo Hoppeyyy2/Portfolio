@@ -16,7 +16,7 @@ background:${(props)=>props.bg};
 const Top = styled.div`
 display:flex;
 flex-direction:column;
-width:100vw;
+width:100%;
 background:${(props)=>props.bg};
 padding:3rem;
 padding-bottom:0;

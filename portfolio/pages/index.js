@@ -14,10 +14,9 @@ const MainStructure = styled.div`
 width:100vw;
 display:flex;
 flex-direction:column;
-position:relative;
-top:89px;
-box-sizing: border-box;
 background:${(props)=> props.bg};
+position:relative;
+top:88px;
 padding:3rem 6rem;
 @media only screen and (max-width: 600px) {
   padding:3rem;
