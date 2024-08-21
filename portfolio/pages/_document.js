@@ -1,4 +1,5 @@
 import Document from 'next/document'
+import { render } from 'react-dom'
 import { ServerStyleSheet } from 'styled-components'
 
 export default class MyDocument extends Document {

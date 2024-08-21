@@ -3,7 +3,6 @@ import styled, { keyframes } from 'styled-components';
 import Link from 'next/link';
 import {detail,para} from "@/utils/variables";
 import { useTheme } from "@/utils/provider";
-import useCursorHandlers from "../../hooks/useCursorHandlers";
 import { BiLeftArrow } from 'react-icons/bi';
 
 const appear = keyframes`
@@ -32,7 +31,6 @@ padding:2.5rem;
 const Btn = styled.h3`
 font-family:${(props)=>props.fm};
 font-weight:300;
-letter-spacing:1px;
 font-size:14px;
 color:${(props)=>props.color};
 
@@ -60,10 +58,9 @@ const Header = ({
   onClick=()=>{},
 })=>{
 const { theme } = useTheme();
-const cursorHandlers = useCursorHandlers();
 
 return<BtnCont paddingRight={paddingRight} paddingLeft={paddingLeft}>
-<Link href={href} onClick={onClick} {...cursorHandlers} className="show-cursor">
+<Link href={href} onClick={onClick}>
   <Btn
   color={color}
   hover={para[theme]}

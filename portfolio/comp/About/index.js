@@ -2,20 +2,34 @@ import styled from "styled-components";
 import * as React from 'react';
 import { useTheme } from "@/utils/provider";
 import { title, detail } from "@/utils/variables";
-import Intro from "comp/Intro";
-
+import { BiSolidRightArrow } from "react-icons/bi";
 const Cont = styled.div`
+width:100vw;
 display:flex;
 flex-direction:column;
+padding:3rem 6rem;
 gap:0.5rem;
+@media screen and (min-width:1440px){
+  width:65%;
+  align-items:center;
+  padding:3rem;
+  padding-left:6rem;
+  padding-right:0;
+}
 @media only screen and (max-width: 600px) {
 gap:0rem;
+padding:3rem;
+}
+@media only screen and (max-width: 370px) {
+  padding:1rem;
+  padding-top:2.5rem;
 }
 `;
 const Responsive = styled.div`
 width:100%;
 display:flex;
 flex-direction:row;
+
 @media only screen and (max-width: 1023px) {
 flex-direction:column;
 }
@@ -27,6 +41,7 @@ display:flex;
 flex-direction:row;
 padding-bottom:0.5rem;
 font-family:${(props)=>props.fm};
+
 @media only screen and (max-width: 600px) {
 flex-direction:column;
 }
@@ -48,9 +63,11 @@ flex-direction:column;
 }
 `;
 const Col = styled.div`
+width:100%;
 display:flex;
 flex-direction:column;
 font-family:${(props)=>props.fm};
+
 `;
 
 const EduCol = styled.div`
@@ -64,7 +81,7 @@ const Title = styled.h3`
 margin:0;
 padding:1rem;
 padding-left:0;
-font-weight:400;
+font-weight:300;
 color:${(props)=>props.color};
 `;
 const SubTitle = styled.h4`
@@ -72,13 +89,13 @@ width:100px;
 margin:0;
 padding:0;
 font-weight:300;
+font-size:16px;
 color:${(props)=>props.color};
-@media only screen and (max-width: 600px){
-  font-weight:400;
-}
+opacity:0.85;
 `;
 const ParaCont = styled.div`
 display:flex;
+align-items:center;
 @media only screen and (max-width: 600px) {
 display:flex;
 flex-wrap:wrap;
@@ -103,12 +120,14 @@ flex-direction:row;
 const DevCont = styled.div`
 display:flex;
 flex-direction:column;
+min-width:${(props)=>props.minWidth};
 `;
 const Para = styled.p`
 margin:0;
 padding:0;
 font-weight:300;
 padding-right:1rem;
+font-size:14px;
 color:${(props)=>props.color};
 @media only screen and (max-width: 600px) {
  padding:0.3rem;
@@ -184,10 +203,10 @@ kwu_major
       </RightCol>
       </Responsive>
     </Col>
-    <Row fm={content_fm} style={{paddingTop:"1.5rem"}}>
+    <Row fm={content_fm} style={{paddingTop:"2rem"}}>
       <Responsive>
-      <DevCont style={{minWidth:"25%"}}>
-          <Title color={title[theme]} >{dev_skill}</Title>
+      <DevCont minWidth="25%">
+          <SubTitle color={title[theme]} >{dev_skill}</SubTitle>
       <Row style={{paddingRight:"1.5rem"}}>
           <SkillCont>
             <Para color={detail[theme]} >HTML/CSS/Sass</Para>
@@ -207,8 +226,8 @@ kwu_major
           </SkillCont>
       </Row>
       </DevCont>
-      <DevCont style={{minWidth:"20%"}}>
-      <Title color={title[theme]} >{design_skill}</Title>
+      <DevCont minWidth="20%">
+      <SubTitle color={title[theme]} >{design_skill}</SubTitle>
       <SkillCont>
             <Para color={detail[theme]} >Figma</Para>
             <Para color={detail[theme]} >Adobe illustrator</Para>
@@ -217,11 +236,11 @@ kwu_major
             <Para color={detail[theme]} >Premiere Pro</Para>
       </SkillCont>
       </DevCont>
-      <DevCont style={{minWidth:"50%"}}>
-      <Title color={title[theme]} >{education}</Title>
+      <DevCont minWidth="50%">
+      <SubTitle color={title[theme]} >{education}</SubTitle>
         <Col style={{paddingTop:"0.3rem"}}>
-          <Row>
-            <SubTitle color={title[theme]} style={{width:"100px", paddingRight:0, fontSize:14, paddingTop:"1px"}}>2020 - 2022: </SubTitle>
+          <Row style={{paddingBottom:"2.3rem"}}>
+            <SubTitle color={title[theme]} style={{width:"100px", paddingRight:0, fontSize:14, paddingTop:"1px"}}>2020 - 2022 : </SubTitle>
           <EduCol>
           <Para color={detail[theme]}>{edu_canada}</Para>
           <Title color={title[theme]} style={{padding:"0.5rem", paddingLeft:0}}>{bcit}</Title>
@@ -229,7 +248,7 @@ kwu_major
           </EduCol>
           </Row>
           <Row>
-            <SubTitle color={title[theme]} style={{width:"100px", paddingRight:0, fontSize:14, paddingTop:"1px"}}>2015 - 2019: </SubTitle>
+            <SubTitle color={title[theme]} style={{width:"100px", paddingRight:0, fontSize:14, paddingTop:"1px"}}>2015 - 2019 : </SubTitle>
           <EduCol>
           <Para color={detail[theme]}>{edu_japan}</Para>
           <Title color={title[theme]} style={{padding:"0.5rem", paddingLeft:0}}>{kwu}</Title>

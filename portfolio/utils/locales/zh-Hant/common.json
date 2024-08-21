@@ -1,13 +1,13 @@
 {
   "FontFamily":{
-    "Header":"'Noto Sans TC', sans-serif",
-    "Content":"'Noto Sans TC', sans-serif"
+    "Header":"'Noto Sans TC', 'Gilroy-Bold', sans-serif",
+    "Content":"'Noto Sans TC', 'Inter', sans-serif"
 
   },
   "Hero":{
     "MyName":"中村千咲",
-    "Content":"我是個住在台灣的UI・UX設計師｜前端工程師。我幫助客戶實現他們的想法，並努力設計和實現易於用戶使用的產品。",
-    "Button_text":"千咲好 👋🏻"
+    "Role":"前端工程師 | UI・UX設計師",
+    "Content":"我幫助客戶實現他們的想法，並努力設計和實現易於用戶使用的產品。"
   },
   "About":{
     "Basic_Info":"基本訊息",
@@ -35,6 +35,15 @@
     "Bcit_major":"網路應用程式設計與開發專業",
     "Kwu":"共立女子大學",
     "Kwu_major":"英美文學專業"
+  },
+  "Work":{
+    "All":"全部",
+    "Design":"設計",
+    "Development":"開發"
+  },
+  "Contact":{
+    "Title":"Contact",
+    "Content":"Thank you for coming! Any comments, feedback, questions, or offers, don't hesitate to shoot me a message or DM me on social media. I would love to hear from you!"
   },
   "Common":{
     

@@ -5,15 +5,13 @@ import styled, { keyframes } from 'styled-components';
 import Header from '../Header';
 import LanguageSwitcher from '../LanguageSwitcher';
 import { Spin as Hamburger } from 'hamburger-react';
-import {navbg,navmobbg,para,progress,detail} from "@/utils/variables";
+import {accentbg, para,navletter} from "@/utils/variables";
 import { useTheme } from "@/utils/provider";
 import ThemeSwitcher from "../ThemeSwitcher";
 import { BiLogoLinkedin } from "react-icons/bi";
 import { AiFillGithub } from "react-icons/ai";
 import { PiNotionLogoFill } from "react-icons/pi";
-import { motion, useScroll } from "framer-motion";
 const Outside = styled.div`
-background:${(props)=> props.bg};
 width:100vw;
 position:fixed;
 top:0;
@@ -102,13 +100,15 @@ animation:${appear} 1.5s ease-in;
 const Nav = ({
 handleColor=()=>{},
 fm, 
+AboutActive,
+WorkActive,
+ContactActive
 })=>{
   const [isOpen, setOpen] = useState(false);
   const [aboutColor, setAboutColor] = useState(false);
   const [workColor, setWorkColor] = useState(false);
   const [contactColor, setContactColor] = useState(false);
   const { theme } = useTheme();
-  const { scrollYProgress } = useScroll();
   var height = 0, width = 0, display = "none";
   if(isOpen === true){
     height="100vh";
@@ -149,13 +149,15 @@ const LogoClick = ()=>{
   setWorkColor(false);
 }
   //console.log(isOpen);
-return<Outside bg={navbg[theme]}>
+
+
+return<Outside>
 <Cont>
-  <Link href="/" style={{padding:"1.5rem", paddingLeft:"0rem"}} onClick={LogoClick}><Img src={theme === "light"? "/logo.svg":"/logo_dark.svg"}/></Link>
+  <Link href="/#home" style={{padding:"1.5rem", paddingLeft:"0rem"}} onClick={LogoClick}><Img src="/logo.svg"/></Link>
   <MainNav>
-  <Header  name="ABOUT" href="/#about" fm={fm} paddingLeft="0px" onClick={AboutColorChange} color={aboutColor === false? detail[theme]:para[theme]}/>
-  <Header  name="WORKS" href="/#work" fm={fm}  color={workColor} onClick={WorkColorChange} color={workColor === false? detail[theme]:para[theme]}/>
-  <Header  name="CONTACT" href="/#contact" paddingRight="20px" fm={fm} onClick={ContactColorChange} color={contactColor === false? detail[theme]:para[theme]}/>
+  <Header  name="ABOUT" href="/#about" fm={fm} paddingLeft="0px" onClick={AboutColorChange} color={ AboutActive === "about"? para[theme]:navletter[theme] || aboutColor === false? navletter[theme]:para[theme]}/>
+  <Header  name="WORKS" href="/#work" fm={fm}  onClick={WorkColorChange} color={ WorkActive === "work"? para[theme]:navletter[theme] || workColor === false? navletter[theme]:para[theme]} />
+  <Header  name="CONTACT" href="/#contact" paddingRight="20px" fm={fm} onClick={ContactColorChange} color={ ContactActive === "contact"? para[theme]:navletter[theme] || contactColor === false? navletter[theme]:para[theme]} />
   <LanguageSwitcher fm={fm}/>
   <ThemeSwitcher  handleColor={handleColor} checked={theme === "light"? false:true} size={20} sunColor={para[theme]} moonColor={para[theme]}/>
   </MainNav>
@@ -163,28 +165,27 @@ return<Outside bg={navbg[theme]}>
     <ThemeSwitcher  handleColor={handleColor} checked={theme === "light"? false:true} size={30} sunColor={para[theme]} moonColor={para[theme]}/>
     <Hamburger toggled={isOpen} toggle={setOpen} color={para[theme]} size={25} duration={0.8} rounded label="Show menu"/>
   </PhoneNav>
-  <motion.div style={{scaleX:scrollYProgress, position:"fixed", top:89,left:0, right:0, height:"1px",transformOrigin:"0%", background:progress[theme],}}/>
 </Cont>
-  <MobCont bg={navmobbg[theme]} height={height} width={width} display={display}>
-  <Header  name="ABOUT" href="/#about" onClick={onLinkClick} fm={fm} color={detail[theme]}/>
-  <Header  name="WORKS" href="/#work" onClick={onLinkClick} fm={fm} color={detail[theme]}/>
-  <Header  name="CONTACT" href="/#contact" onClick={onLinkClick} fm={fm} color={detail[theme]}/>
+  <MobCont bg={accentbg[theme]} height={height} width={width} display={display}>
+  <Header  name="ABOUT" href="/#about" onClick={onLinkClick} fm={fm} color={navletter[theme]}/>
+  <Header  name="WORKS" href="/#work" onClick={onLinkClick} fm={fm} color={navletter[theme]}/>
+  <Header  name="CONTACT" href="/#contact" onClick={onLinkClick} fm={fm} color={navletter[theme]}/>
   <LanguageSwitcher fm={fm}/>
   <LinksCont>
     <Links >
     <a href="https://www.linkedin.com/in/chisaki-nakamura-951b55229/" target="_blank" >
-      <BiLogoLinkedin style={{color:para[theme], width:"25px", height:"25px"}}/>
+      <BiLogoLinkedin style={{color:"#3B526E", width:"25px", height:"25px"}}/>
       </a>
     </Links>
     <Links>
       <a href="https://github.com/Hoppeyyy2" target="_blank">
-      <AiFillGithub style={{color:para[theme],width:"25px", height:"25px"}}/>
+      <AiFillGithub style={{color:"#3B526E",width:"25px", height:"25px"}}/>
       </a>
     </Links>
     <Links>
       {/* Notionのページ作る　*/}
       <a href="" target="_blank" >
-      <PiNotionLogoFill style={{color:para[theme],width:"25px", height:"25px"}}/>
+      <PiNotionLogoFill style={{color:"#3B526E",width:"25px", height:"25px"}}/>
       </a>
     </Links>
   </LinksCont>

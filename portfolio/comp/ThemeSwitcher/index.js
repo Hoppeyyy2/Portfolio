@@ -2,7 +2,7 @@ import React from 'react';
 import * as ReactDOM from 'react-dom';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import styled from 'styled-components';
-import useCursorHandlers from "../../hooks/useCursorHandlers";
+
 
 const Cont = styled.div`
 display:flex;
@@ -19,9 +19,9 @@ const MobThemeSwitcher = ({
   sunColor,
   moonColor,
 }) => {  
-  const cursorHandlers = useCursorHandlers();
+
     return (
-      <Cont {...cursorHandlers} className="show-cursor">
+      <Cont>
       <DarkModeSwitch
       onChange={handleColor}
       checked={checked}

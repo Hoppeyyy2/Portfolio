@@ -1,9 +1,8 @@
-import react, {useState} from "react";
+import react, {useState, useEffect} from "react";
 import styled, { keyframes } from 'styled-components';
 import { useRouter } from 'next/router';
-import {bg,detail,para,accentbg} from "@/utils/variables";
+import {bg,detail,para,accentbg,navletter} from "@/utils/variables";
 import { useTheme } from "@/utils/provider";
-import useCursorHandlers from "../../hooks/useCursorHandlers";
 import { GrLanguage } from "react-icons/gr";
 import { IoIosArrowDown } from "react-icons/io";
 const appear = keyframes`
@@ -28,6 +27,7 @@ padding-left:0;
 }
 @media only screen and (max-width: 600px) {
 padding:2.3rem;
+padding-bottom:0;
 }
 `;
 const Select = styled.div`
@@ -94,7 +94,6 @@ const LanguageSwitcher2 = ({
 }) =>{
   const { theme } = useTheme();
   const router = useRouter();
-  const cursorHandlers = useCursorHandlers();
   const data = [{id:0, value:"en", label:"EN"},{id:1, value:"zh-Hant", label:"CH"},{id:2, value:"ja", label:"JP"}]
   const [active, setActive] = useState(data[0].label);
   const [open, setOpen] = useState(false);
@@ -105,9 +104,19 @@ const LanguageSwitcher2 = ({
       setOpen(false)
     }
   }
+useEffect(()=>{
+  if(typeof window !== 'undefined' && window.localStorage){
+    let active = localStorage.getItem('active');
+    setActive(active);
+  }
+},[])
+
   const handleChange = (e) =>{
-    setActive(e.target.innerHTML)
-    setOpen(false)
+    if(typeof window !== 'undefined' && window.localStorage){
+      localStorage.setItem('active', e.target.innerHTML);
+      setActive(e.target.innerHTML);
+    }
+    setOpen(false);
     router.push(
       {
         pathname: router.pathname,
@@ -119,9 +128,9 @@ const LanguageSwitcher2 = ({
   }
 
   return (
-    <Cont {...cursorHandlers} className="show-cursor">
+    <Cont>
       <Select
-      color={detail[theme]}
+      color={navletter[theme]}
       active={para[theme]}
       onClick={OpenBox}
       >

@@ -1,13 +1,13 @@
 {
   "FontFamily":{
-    "Header":"'Kiwi Maru', sans-serif",
-    "Content":"'Hiragino Kaku Gothic ProN W3','Hiragino Kaku Gothic Pro W3','Meiryo', sans-serif"
+    "Header":"'Kiwi Maru', 'Gilroy-Bold', sans-serif",
+    "Content":"'Hiragino Kaku Gothic ProN W3','Hiragino Kaku Gothic Pro W3','Meiryo', 'Inter', sans-serif"
 
   },
   "Hero":{
     "MyName":"中村千咲",
-    "Content":"台湾在住のUI・UX　デザイナー｜フロントエンドエンジニアです。クライアントの「　アイディア　」を具現化し、ユーザーの「　使いやすい　」をデザイン・実装する事を心掛けています。",
-    "Button_text":"こんにちは 👋🏻"
+    "Role":"フロントエンドエンジニア | UI・UX　デザイナー",
+    "Content":"クライアントの「　アイディア　」を具現化し、ユーザーの「　使いやすい　」をデザイン・実装する事を心掛けています。"
   },
   "About":{
     "Basic_Info":"基本情報",
@@ -35,6 +35,15 @@
     "Bcit_major":"デジタル設計開発科専攻",
     "Kwu":"共立女子大学",
     "Kwu_major":"英米文学専攻"
+  },
+  "Work":{
+    "All":"全て",
+    "Design":"デザイン",
+    "Development":"開発"
+  },
+  "Contact":{
+    "Title":"Contact",
+    "Content":"Thank you for coming! Any comments, feedback, questions, or offers, don't hesitate to shoot me a message or DM me on social media. I would love to hear from you!"
   },
   "Common":{
  

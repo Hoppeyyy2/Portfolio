@@ -1,14 +1,14 @@
 
 {
   "FontFamily":{
-    "Header":"'Des Morgan', sans-serif",
-    "Content":"'Lato', sans-serif"
+    "Header":"'Gilroy-Bold', sans-serif",
+    "Content":"'Inter', sans-serif"
 
   },
   "Hero":{
     "MyName":"Chisaki Nakamura",
-    "Content":"I’m a passionate   Frontend developer  |  UI UX  Designer  based in Taiwan. I specialize in user-centered, cutting-edge, and beautiful interfaces with responsive web design. In terms of implementation, I focus on code readability and its maintainability.",
-    "Button_text":"Hi, Chisaki 👋🏻"
+    "Role":"Frontend developer  |  UI UX  Designer ",
+    "Content":"I build user-centered, cutting-edge, and beautiful interfaces with responsive web design."
   },
   "About":{
     "Basic_Info":"Basic Informaiton",
@@ -36,6 +36,15 @@
     "Bcit_major":"Major in Digital Design and Development",
     "Kwu":"Kyoritsu Women’s University",
     "Kwu_major":"Major in English Literature"
+  },
+  "Work":{
+    "All":"All",
+    "Design":"Design",
+    "Development":"Development"
+  },
+  "Contact":{
+    "Title":"Contact",
+    "Content":"Thank you for coming! Any comments, feedback, questions, or offers, don't hesitate to shoot me a message or DM me on social media. I would love to hear from you!"
   },
   "Common":{
   
