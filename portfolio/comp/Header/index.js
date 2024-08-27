@@ -30,15 +30,14 @@ padding:2.5rem;
 
 const Btn = styled.h3`
 font-family:${(props)=>props.fm};
-font-weight:300;
+font-weight:${(props)=>props.fontWeight};
 font-size:14px;
 color:${(props)=>props.color};
 
-:active{
-color:${(props)=>props.active};
-}
+
 :hover{
 color:${(props)=>props.hover};
+font-weight:400;
 }
 
 @media only screen and (max-width: 600px) {
@@ -55,6 +54,7 @@ const Header = ({
   paddingLeft,
   fm,
   color,
+  fontWeight="300",
   onClick=()=>{},
 })=>{
 const { theme } = useTheme();
@@ -66,6 +66,7 @@ return<BtnCont paddingRight={paddingRight} paddingLeft={paddingLeft}>
   hover={para[theme]}
   active={para[theme]}
   fm={fm}
+  fontWeight={fontWeight}
   >
     {name}
   </Btn>

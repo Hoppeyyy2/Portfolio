@@ -155,9 +155,9 @@ return<Outside>
 <Cont>
   <Link href="/#home" style={{padding:"1.5rem", paddingLeft:"0rem"}} onClick={LogoClick}><Img src="/logo.svg"/></Link>
   <MainNav>
-  <Header  name="ABOUT" href="/#about" fm={fm} paddingLeft="0px" onClick={AboutColorChange} color={ AboutActive === "about"? para[theme]:navletter[theme] || aboutColor === false? navletter[theme]:para[theme]}/>
-  <Header  name="WORKS" href="/#work" fm={fm}  onClick={WorkColorChange} color={ WorkActive === "work"? para[theme]:navletter[theme] || workColor === false? navletter[theme]:para[theme]} />
-  <Header  name="CONTACT" href="/#contact" paddingRight="20px" fm={fm} onClick={ContactColorChange} color={ ContactActive === "contact"? para[theme]:navletter[theme] || contactColor === false? navletter[theme]:para[theme]} />
+  <Header  name="ABOUT" href="/#about" fm={fm} paddingLeft="0px" onClick={AboutColorChange} color={ AboutActive === "about"? para[theme]:navletter[theme] || aboutColor === false ? navletter[theme]:para[theme]} fontWeight={AboutActive ==="about"?"400":"300" || aboutColor === false ? "300":"400"}/>
+  <Header  name="WORKS" href="/#work" fm={fm}  onClick={WorkColorChange} color={ WorkActive === "work"? para[theme]:navletter[theme] || workColor === false ? navletter[theme]:para[theme]} fontWeight={WorkActive ==="work"?"400":"300" || workColor ===false ?"300":"400"}/>
+  <Header  name="CONTACT" href="/#contact" paddingRight="20px" fm={fm} onClick={ContactColorChange} color={ ContactActive === "contact"? para[theme]:navletter[theme] || contactColor === false ? navletter[theme]:para[theme]} fontWeight={ContactActive ==="contact"?"400":"300" || contactColor === false ?"300":"400"}/>
   <LanguageSwitcher fm={fm}/>
   <ThemeSwitcher  handleColor={handleColor} checked={theme === "light"? false:true} size={20} sunColor={para[theme]} moonColor={para[theme]}/>
   </MainNav>

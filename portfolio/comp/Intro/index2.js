@@ -16,6 +16,7 @@ color:#111A36;
 font-weight:200;
 opacity:0.7;
 font-size:34px;
+padding-bottom:${(props)=>props.pb};
 `;
 
 const SubTitle = styled.p`
@@ -42,6 +43,7 @@ padding-top:0.5rem;
 `;
 const Intro = ({
   fm,
+  pb,
   parafm,
   padding,
   name,
@@ -50,7 +52,7 @@ const Intro = ({
 }) =>{
   const { theme } = useTheme();
 return<Cont padding={padding}>
-  <Title fm={fm}>{name}</Title>
+  <Title fm={fm} pb={pb}>{name}</Title>
   <SubTitle parafm={parafm}>{role}</SubTitle>
   <Para parafm={parafm} color={accentpara[theme]}>{copy}</Para>
 </Cont>

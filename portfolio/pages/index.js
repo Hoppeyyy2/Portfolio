@@ -2,6 +2,7 @@ import Head from 'next/head';
 import styled from "styled-components";
 import Nav from 'comp/Nav/index2';
 import Hero from 'comp/Hero/index2';
+import About from 'comp/About/index2';
 import Img from 'comp/Img';
 import { useEffect, useState, useRef} from "react";
 import { useTheme } from "@/utils/provider";
@@ -24,6 +25,9 @@ overflow-y:hidden;
 const NavCont = styled.div`
 width:100%;
 height:10%;
+@media only screen and (max-height: 380px) {
+  height:15%;
+}
 `;
 const MainCont = styled.article`
 width:100%;
@@ -32,6 +36,9 @@ overflow-y:scroll;
 scroll-snap-type:y mandatory;
 ::-webkit-scrollbar {
   display: none;
+}
+@media only screen and (max-height: 380px) {
+  height:85%;
 }
 `;
 const Scroll = styled.section`
@@ -44,6 +51,9 @@ const ImgCont = styled.div`
 height:20%;
 display:flex;
 align-items:flex-end;
+@media only screen and (max-height: 380px) {
+  height:10%;
+}
 `;
 const Motion = styled(motion(ImgCont))``;
 const Home =() =>{
@@ -76,7 +86,7 @@ const Home =() =>{
                 observer.current.unobserve(section);
               });
             };
-            
+
       loading
       ? document.querySelector("body").classList.add("loading")
       : document.querySelector("body").classList.remove("loading");
@@ -138,14 +148,19 @@ const Home =() =>{
               copy={t('Hero.Content')} 
             />
             </Scroll>
-            <Scroll id="about">
-              <Hero
+            <Scroll id="about" style={{display:"flex",flexDirection:"column"}}>
+                <About
                 fm={t('FontFamily.Header')} 
+                pb="1rem"
                 parafm={t('FontFamily.Content')} 
-                name={t('Hero.MyName')} 
-                role={t("Hero.Role")}
-                copy={t('Hero.Content')} 
-              />
+                title={t('About.title')}
+                subtitle={t("About.subtitle")}
+                subtitle2={t("About.subtitle2")}
+                subtitle3={t("About.subtitle3")}
+                para={t('About.para')} 
+                para2={t('About.para2')}
+                para3={t('About.para3')}
+                />
             </Scroll>
             <Scroll id="work">
 

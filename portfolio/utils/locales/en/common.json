@@ -11,6 +11,14 @@
     "Content":"I build user-centered, cutting-edge, and beautiful interfaces with responsive web design."
   },
   "About":{
+    "title":"What I can offer",
+    "subtitle":"Ideation",
+    "subtitle2":"Design",
+    "subtitle3":"Development",
+    "para":"A great website comes from a solid concept that nails user's needs. Therefore, I help clients from ideation to implementation.",
+    "para2":"I specialize in user-centered, cutting-edge, and beautiful interface design. I always conduct user research and reflect them on my design.",
+    "para3":"My focus is on interactivity, smooth animation, and pixel-perfect. In terms of coding itself, I care about code readability and its maintainability.",
+    
     "Basic_Info":"Basic Informaiton",
     "Nationality":"Nationality",
     "Japan":"Japanese",
