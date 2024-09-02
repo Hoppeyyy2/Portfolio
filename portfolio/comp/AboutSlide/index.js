@@ -51,6 +51,7 @@ padding-top:0.5rem;
   max-width:80%;
 }
 `;
+
 const AboutSlide = ({
 parafm,
 subtitle,
@@ -65,34 +66,26 @@ para3
   const delay = 6500;
   const [index, setIndex] = useState(0);
   const timeoutRef = useRef(null);
-  
+
     function resetTimeout() {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
       }
     }
-    function updateArray (){
-      const moveItem = contents.shift();
-      //console.log(contents);
-      //console.log(moveItem);
-      contents.push(moveItem);
-      console.log("new contents!",contents);
-    }
+
   useEffect(() => {
       resetTimeout();
-      updateArray();
       const lastIndex = contents.length - 1; // index (2)
       timeoutRef.current = setTimeout(
         () =>
           setIndex((prevIndex) =>
             prevIndex === lastIndex ? 0 : prevIndex + 1
-          ),
-        delay
+          )
+       , delay
       );
  
       return () => {
         resetTimeout();
-        updateArray();
       };
     }, [index]);
 
