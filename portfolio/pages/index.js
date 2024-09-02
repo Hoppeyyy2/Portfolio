@@ -12,6 +12,7 @@ import { useTranslation } from 'next-i18next';
 import Contact from '@/comp/Contact';
 import Loading from '@/comp/Loading';
 import { motion, AnimatePresence, LayoutGroup} from "framer-motion";
+import ContactBtn from '@/comp/Button/ContactBtn';
 
 
 const Cont = styled.div`
@@ -46,6 +47,7 @@ height:100%;
 scroll-snap-align:start;
 display:flex;
 justify-content:center;
+
 `;
 const ImgCont = styled.div`
 height:20%;
@@ -165,8 +167,16 @@ const Home =() =>{
             <Scroll id="work">
 
             </Scroll>
-            <Scroll id="contact">
-
+            <Scroll id="contact" style={{flexDirection:"column"}}>
+              <Hero
+              fm={t('FontFamily.Header')} 
+              parafm={t('FontFamily.Content')} 
+              name={t('Contact.Title')} 
+              copy={t('Contact.Content')} 
+              />
+              <ContactBtn
+               fm={t('FontFamily.Content')} 
+              />
             </Scroll>
           </MainCont>
           {!loading && (<Motion

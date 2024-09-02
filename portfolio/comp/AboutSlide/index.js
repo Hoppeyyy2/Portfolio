@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 const SridesArea = styled.article`
 width:100%;
-height:45%;
+height:50%;
 overflow-y:hidden;
 ::-webkit-scrollbar {
   display: none;

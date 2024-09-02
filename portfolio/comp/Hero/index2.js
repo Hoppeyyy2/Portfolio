@@ -33,7 +33,9 @@ width:100%;
   flex-direction:column;
   align-items:center;
 }
-
+@media screen and (min-height: 380px) and (max-height: 430px) {
+  padding:2rem;
+}
 @media only screen and (max-height: 380px) {
 padding:2rem;
 padding-bottom:0;

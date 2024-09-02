@@ -39,7 +39,10 @@ height:100%;
   flex-direction:column;
   align-items:center;
 }
-
+@media screen and (min-height: 380px) and (max-height: 430px) {
+  padding:2rem;
+  padding-bottom:0;
+}
 @media only screen and (max-height: 380px) {
 padding:2rem;
 padding-bottom:0;
@@ -75,6 +78,9 @@ max-width:100%;
   padding:0rem;
   max-width:100%;
   }
+@media screen and (min-height: 380px) and (max-height: 430px) {
+    padding-bottom:0;
+}
 @media only screen and (max-height: 380px) {
   justify-content:flex-start;
 }
