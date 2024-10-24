@@ -25,7 +25,9 @@ padding-right:${(props)=>props.paddingRight};
 @media only screen and (max-width: 600px) {
 padding:2.5rem;
 }
-
+@media only screen and (max-height: 380px) {
+  padding:1rem 2.5rem;
+}
 `;
 
 const Btn = styled.h3`

@@ -10,12 +10,13 @@ import { useTheme } from "@/utils/provider";
 import ThemeSwitcher from "../ThemeSwitcher";
 import { BiLogoLinkedin } from "react-icons/bi";
 import { AiFillGithub } from "react-icons/ai";
-import { PiNotionLogoFill } from "react-icons/pi";
+import { BsFillSendFill } from "react-icons/bs";
 const Outside = styled.div`
 width:100vw;
 position:fixed;
 top:0;
 z-index:1;
+background:${(props)=> props.bg};
 `;
 const Cont = styled.div`
 display:flex;
@@ -46,10 +47,18 @@ flex-direction:row;
 @media only screen and (max-width: 600px) {
   display:none;
 }
+@media only screen and (max-height: 380px) {
+  display:none;
+  }
 `;
 const PhoneNav = styled.div`
 display:none;
 @media only screen and (max-width: 600px) {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+@media only screen and (max-height: 380px) {
   display:flex;
   align-items:center;
   justify-content:center;
@@ -69,6 +78,10 @@ background:${(props)=> props.bg};
 @media only screen and (min-width: 600px) {
   display:none;
 }
+@media only screen and (max-height: 380px) {
+  display:${props=>props.display};
+  padding-top:0;
+}
 `;
 
 const LinksCont = styled.ul`
@@ -76,6 +89,7 @@ display:flex;
 flex-direction:row;
 justify-content:center;
 margin-top:1.5rem;
+
 `;
 
 const appear = keyframes`
@@ -97,6 +111,13 @@ position: relative;
 animation:${appear} 1.5s ease-in;
 `;
 
+const Logo = styled(Link)`
+padding:1.5rem;
+padding-left:0;
+@media only screen and (max-height: 380px) {
+  padding-top:1rem;
+}
+`;
 const Nav = ({
 handleColor=()=>{},
 fm, 
@@ -151,9 +172,9 @@ const LogoClick = ()=>{
   //console.log(isOpen);
 
 
-return<Outside>
+return<Outside bg={accentbg[theme]}>
 <Cont>
-  <Link href="/#home" style={{padding:"1.5rem", paddingLeft:"0rem"}} onClick={LogoClick}><Img src="/logo.svg"/></Link>
+  <Logo href="/#home" onClick={LogoClick}><Img src="/logo.svg"/></Logo>
   <MainNav>
   <Header  name="ABOUT" href="/#about" fm={fm} paddingLeft="0px" onClick={AboutColorChange} color={ AboutActive === "about"? para[theme]:navletter[theme] || aboutColor === false ? navletter[theme]:para[theme]} fontWeight={AboutActive ==="about"?"400":"300" || aboutColor === false ? "300":"400"}/>
   <Header  name="WORKS" href="/#work" fm={fm}  onClick={WorkColorChange} color={ WorkActive === "work"? para[theme]:navletter[theme] || workColor === false ? navletter[theme]:para[theme]} fontWeight={WorkActive ==="work"?"400":"300" || workColor ===false ?"300":"400"}/>
@@ -184,8 +205,8 @@ return<Outside>
     </Links>
     <Links>
       {/* Notionのページ作る　*/}
-      <a href="" target="_blank" >
-      <PiNotionLogoFill style={{color:"#3B526E",width:"25px", height:"25px"}}/>
+      <a href="mailto:chisaki.business@gmail.com" target="_blank" >
+      <BsFillSendFill style={{color:"#3B526E",width:"24px", height:"24px"}}/>
       </a>
     </Links>
   </LinksCont>

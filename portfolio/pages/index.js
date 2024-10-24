@@ -3,13 +3,13 @@ import styled from "styled-components";
 import Nav from 'comp/Nav/index2';
 import Hero from 'comp/Hero/index2';
 import About from 'comp/About/index2';
+import Work from 'comp/Work/index2';
 import Img from 'comp/Img';
 import { useEffect, useState, useRef} from "react";
 import { useTheme } from "@/utils/provider";
-import {accentbg, para, navletter } from "@/utils/variables";
+import {accentbg} from "@/utils/variables";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import Contact from '@/comp/Contact';
 import Loading from '@/comp/Loading';
 import { motion, AnimatePresence, LayoutGroup} from "framer-motion";
 import ContactBtn from '@/comp/Button/ContactBtn';
@@ -26,9 +26,9 @@ overflow-y:hidden;
 const NavCont = styled.div`
 width:100%;
 height:10%;
-@media only screen and (max-height: 380px) {
+@media only screen and (max-height: 580px) {
   height:15%;
-}
+   }
 `;
 const MainCont = styled.article`
 width:100%;
@@ -38,24 +38,23 @@ scroll-snap-type:y mandatory;
 ::-webkit-scrollbar {
   display: none;
 }
-@media only screen and (max-height: 380px) {
-  height:85%;
-}
+@media only screen and (max-height: 580px) {
+ height:85%;
+  }
 `;
 const Scroll = styled.section`
 height:100%;
 scroll-snap-align:start;
 display:flex;
 justify-content:center;
-
 `;
 const ImgCont = styled.div`
 height:20%;
 display:flex;
 align-items:flex-end;
-@media only screen and (max-height: 380px) {
-  height:10%;
-}
+@media only screen and (max-height: 580px) {
+  display:none;
+  }
 `;
 const Motion = styled(motion(ImgCont))``;
 const Home =() =>{
@@ -165,7 +164,11 @@ const Home =() =>{
                 />
             </Scroll>
             <Scroll id="work">
-
+              <Work
+                fm={t('FontFamily.Header')} 
+                parafm={t('FontFamily.Content')} 
+                title={t('Work.Title')}
+              />
             </Scroll>
             <Scroll id="contact" style={{flexDirection:"column"}}>
               <Hero

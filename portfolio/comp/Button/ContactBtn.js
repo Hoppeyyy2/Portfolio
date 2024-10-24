@@ -5,12 +5,12 @@ import { useTheme } from "@/utils/provider";
 import {para,navletter} from "@/utils/variables";
 import { BiLogoLinkedin } from "react-icons/bi";
 import { AiFillGithub } from "react-icons/ai";
-import { PiNotionLogoFill } from "react-icons/pi";
 import { BsFillSendFill } from "react-icons/bs";
 
 const Cont = styled.div`
 display:flex;
 flex-direction:row;
+
 @media only screen and (min-width: 1081px) {
   width:50%;
   margin-top:-3rem;
@@ -35,6 +35,7 @@ flex-direction:row;
   align-items:left;
 }
 @media only screen and (max-width: 600px) {
+  width:60%;
   padding:0 2.5rem;
   margin-top:-1rem;
   justify-content:space-between;
@@ -63,10 +64,10 @@ fm
     width="30px"
     height="30px"
     br="50%"
-    bg={navletter[theme]}
+    bg="#3B526E"
     Hwidth="120px"
     Hbr="5%"
-    Hbg={para[theme]}
+    Hbg="#3B526E"
     icon={
       <a href="https://www.linkedin.com/in/chisaki-nakamura-951b55229/" target="_blank" >
       <BiLogoLinkedin style={{color:"#FFFFFF", width:"20px", height:"20px"}}/>
@@ -82,10 +83,10 @@ fm
     width="30px"
     height="30px"
     br="50%"
-    bg={navletter[theme]}
+    bg="#3B526E"
     Hwidth="120px"
     Hbr="5%"
-    Hbg={para[theme]}
+    Hbg="#3B526E"
     icon={
       <a href="https://github.com/Hoppeyyy2" target="_blank">
       <AiFillGithub style={{color:"#FFFFFF",width:"20px", height:"20px"}}/>
@@ -101,29 +102,10 @@ fm
     width="30px"
     height="30px"
     br="50%"
-    bg={navletter[theme]}
+    bg="#3B526E"
     Hwidth="120px"
     Hbr="5%"
-    Hbg={para[theme]}
-    icon={
-      <a href="" target="_blank" >
-      <PiNotionLogoFill style={{color:"#FFFFFF",width:"20px", height:"20px"}}/>
-      </a>
-    }
-    text_content="Notion"
-    text_color="#FFFFFF"
-    fontSize="14px"
-    fm={fm}
-    onClick={() =>window.open("",'_blank')}
-    />
-    <Button
-    width="30px"
-    height="30px"
-    br="50%"
-    bg={navletter[theme]}
-    Hwidth="120px"
-    Hbr="5%"
-    Hbg={para[theme]}
+    Hbg="#3B526E"
     icon={
       <a href="mailto:chisaki.business@gmail.com" target="_blank" >
       <BsFillSendFill style={{color:"#FFFFFF",width:"15px", height:"15px"}}/>

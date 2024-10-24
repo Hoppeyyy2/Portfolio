@@ -2,7 +2,8 @@
 {
   "FontFamily":{
     "Header":"'Gilroy-Bold', sans-serif",
-    "Content":"'Inter', sans-serif"
+    "Content":"'Inter', sans-serif",
+    "WorkTitle":"Des Morgan, sans-serif"
 
   },
   "Hero":{
@@ -46,6 +47,8 @@
     "Kwu_major":"Major in English Literature"
   },
   "Work":{
+    "Title":"Works",
+    
     "All":"All",
     "Design":"Design",
     "Development":"Development"
@@ -53,6 +56,35 @@
   "Contact":{
     "Title":"Contact",
     "Content":"Thank you for coming! Any comments, feedback, questions, or offers, don't hesitate to shoot me a message or DM me on social media. I would love to hear from you!"
+  },
+  "WorkCategory":{
+    "Project_Type":"Project Type",
+    "Project_Text":"Mobile Application",
+    "My_Role":"My Role",
+    "My_Role_Text":"UI UX Design",
+    "My_Role_Text2":"Frontend Dev",
+    "Stack":"Stack",
+    "Stack1":"React Native",
+    "Year":"Period",
+    "Period":"Feb 2022 - Sep 2022"
+
+  },
+  "Guessfit":{
+    "Overview1":"Guessfit is a mobile workout application that helps users build their workout routines and healthy eating habits with AI-driven technology.  It automatically provides weekly workout and meal plans based on user goals with the AI-driven coaching system.",
+    "Overview2":"At the startup company Guessfit, I participated as an intern in the entire process from brainstorming ideas to market research, user research, app design, and development. In addition, I also designed and built the campaign website for the mobile app. As the project leader, I was also entrusted with managing the project schedule.",
+    "Background1":"During the COVID-19 spread in the world, many shops, restaurants, and gyms were closed to prevent its spreading. As a result, more and more people have switched to managing their habits online including workouts. However, without having trainers or peers, setting the right goals and motivating themselves is much harder in terms of workouts.",
+    "Background2":"The idea of Guessfit comes from helping people who want to establish their workout and meal habits for their health but don't know how to start without the help of a trainer.",
+    "Problems1":"To identify the problems and scope down the solution we can provide through the Guessfit app, we surveyed 15 random people.  After conducting the survey, we found out the following:",
+    "Problems_item1":"Lost Habits",
+    "Problems_item1_explain":"- After COVID-19 spread and gyms were closed,  they lost the habit of doing workouts.",
+    "Problems_item2":"No direction",
+    "Problems_item2_explain":"- They don't know if their workout routine works well to achieve their goals.",
+    "Problems_item3":"Hard to manage",
+    "Problems_item3_explain":"- They lost the motivation to workout because no one monitors them.",
+    "Solutions1":"From the findings above, we decided to provide the following solutions through the Guessfit app:",
+    "Solutions_item1":"Set realistic goals with AI data",
+    "Solutions_item2":"Plan workout and meal schedules based on the user's habits and goals with AI data",
+    "Solutions_item3":"Daily stamps to track their achievements"
   },
   "Common":{
   

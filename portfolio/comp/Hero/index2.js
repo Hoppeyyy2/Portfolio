@@ -34,11 +34,10 @@ width:100%;
   align-items:center;
 }
 @media screen and (min-height: 380px) and (max-height: 430px) {
-  padding:2rem;
+  padding:0 2rem;
 }
 @media only screen and (max-height: 380px) {
-padding:2rem;
-padding-bottom:0;
+padding:0 2rem;
 flex-direction:column;
 }
 `;
@@ -64,6 +63,7 @@ padding:3rem;
   padding:1rem;
   flex-direction:row;
 }
+
 @media only screen and (max-width: 600px) {
 padding:1.5rem;
 max-width:100%;

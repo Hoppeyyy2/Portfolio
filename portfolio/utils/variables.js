@@ -68,3 +68,7 @@ export const navletter = {
   dark:"#3B526E"
 }
 
+export const product_title = {
+  light:"#111A36",
+  dark:"#F6F8F9"
+}

@@ -31,7 +31,7 @@ position:relative;
   max-width:50%;
 }  
 @media (min-width: 768px) and (max-width: 1024px) {
-  max-width:50%;
+  max-width:40%;
 }
 @media screen and (min-width: 601px) and (max-width:767px){
   max-width:50%;
@@ -60,6 +60,7 @@ padding-left:${(props)=>props.pl};
 @media only screen and (max-height: 370px) {
   margin-bottom:-25px;
 }
+
 `;
 const Coffee = styled.div`
 display:flex;

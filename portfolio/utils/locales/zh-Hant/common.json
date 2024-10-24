@@ -1,7 +1,8 @@
 {
   "FontFamily":{
     "Header":"'Noto Sans TC', 'Gilroy-Bold', sans-serif",
-    "Content":"'Noto Sans TC', 'Inter', sans-serif"
+    "Content":"'Noto Sans TC', 'Inter', sans-serif",
+    "WorkTitle":"Des Morgan, sans-serif"
 
   },
   "Hero":{
@@ -14,9 +15,9 @@
     "subtitle":"從專案規劃到網站或應用程式發布",
     "subtitle2":"UIUX 設計",
     "subtitle3":"網路應用程式開發",
-    "para":"我將負責幫助您完成從規劃到用戶研究、市場研究、縮小目標受眾範圍以及隨之而來的品牌推廣等各個方面的幫助。",
-    "para2":"我時刻牢記“ 誰會使用、何時使用、在什麼情況下使用 ”，努力打造針對用戶群量身定制、人性化的 UIUX 設計。我也不斷檢查最新的 UIUX 趨勢並將其納入我們的計劃中。",
-    "para3":"我最擅長使用 React 進行開發。我嘗試編寫盡可能簡單、易於閱讀且易於維護的程式碼。",
+    "para":"我會提供企劃、用戶研究、市場調查、目標受眾篩選到品牌推廣等各個方面的協助。",
+    "para2":"我會考慮「　誰在何時、以何種方式使用網頁　」，致力於設計友善的UI/UX。也會隨時關注最新趨勢，並加以應用。",
+    "para3":"我最擅長使用 React 進行開發，並致力於編寫簡潔、易讀且易於維護的程式碼。",
 
     "Basic_Info":"基本訊息",
     "Nationality":"國籍",
@@ -45,6 +46,8 @@
     "Kwu_major":"英美文學專業"
   },
   "Work":{
+    "Title":"作品集",
+    
     "All":"全部",
     "Design":"設計",
     "Development":"開發"
@@ -52,6 +55,35 @@
   "Contact":{
     "Title":"聯繫",
     "Content":"感謝您造訪我的網站。如果您對我的工作有任何疑問或意見，請透過以下方式與我聯絡。"
+  },
+  "WorkCategory":{
+    "Project_Type":"項目類型",
+    "Project_Text":"行動應用程式",
+    "My_Role":"我的角色",
+    "My_Role_Text":"UI UX Design",
+    "My_Role_Text2":"Frontend Dev",
+    "Stack":"使用語言",
+    "Stack1":"React Native",
+    "Year":"生產期",
+    "Period":"2022年2月 〜 2022年9月"
+    
+  },
+  "Guessfit":{
+    "Overview1":"Guessfit 是一款移動健身應用程式，通過 AI 技術幫助用戶建立運動習慣和健康的飲食習慣。它根據用戶的目標，AI 驅動的教練系統自動提供每週的運動和飲食計劃。",
+    "Overview2":"在新創公司 Guessfit，我以實習生的身份參與了從企劃發想到市場調查、用戶調查、應用程式設計及開發的全過程。此外，我還同時設計並建置了這款移動應用程式的宣傳網站。作為專案負責人，我也被委任管理專案的進度安排。",
+    "Background1":"在 COVID-19 全球蔓延期間，許多商店、餐廳和健身房被關閉以防止病毒擴散。因此，越來越多的人轉向在線管理他們的習慣，包括鍛煉。然而，沒有教練或同伴的支持，設定正確的目標和激勵自己在鍛煉方面變得更加困難。",
+    "Background2":"Guessfit 的想法源於幫助那些想要建立運動和飲食習慣以改善健康，但在沒有教練幫助的情況下不知道如何開始的人。",
+    "Problems1":"我們對15位隨機人士進行了調查，探討他們在建立運動習慣和飲食限制方面的挑戰。調查結果顯示，人們主要面臨以下幾個問題：",
+    "Problems_item1":"失去的習慣",
+    "Problems_item1_explain":"- 隨著 COVID-19 的擴散和健身房的關閉，失去運動習慣的人數增加。",
+    "Problems_item2":"方向性的迷惘",
+    "Problems_item2_explain":"- 不知道自己的運動方式是否有效能達成目標。",
+    "Problems_item3":"動力管理",
+    "Problems_item3_explain":"- 在無法見到教練或同伴的情況下，管理動力變得困難。",
+    "Solutions1":"基於以上的調查結果，我們決定通過 Guessfit 應用程式提供以下解決方案：",
+    "Solutions_item1":"使用 AI 數據設立實際可行的目標",
+    "Solutions_item2":"根據用戶的習慣和目標，使用 AI 數據規劃運動和飲食計劃",
+    "Solutions_item3":"每日打卡來追蹤他們的成就"
   },
   "Common":{
     

@@ -69,15 +69,10 @@ const Button = ({
     if(hover === false){
       setHover(true);
     }
-      else{
-        setHover(false);
-      }
   }
   const onMouseLeave = () =>{
     if(hover === true){
       setHover(false);
-    }else{
-      setHover(true);
     }
   }
 return<Cont 

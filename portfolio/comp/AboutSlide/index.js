@@ -2,18 +2,28 @@ import styled,{keyframes} from "styled-components";
 import * as React from 'react';
 import { useState, useEffect, useRef } from "react";
 import { useTheme } from "@/utils/provider";
-import {accentpara} from "@/utils/variables";
+import {accentpara, title} from "@/utils/variables";
 import { motion } from "framer-motion";
 
 const SridesArea = styled.article`
 width:100%;
-height:50%;
+max-height:40%;
 overflow-y:hidden;
+position:relative;
 ::-webkit-scrollbar {
   display: none;
 }
-@media only screen and (max-height: 380px) {
-  height:70%;
+@media only screen and (min-width: 1024px) {
+  max-height:55%;
+}
+@media screen and (min-width:601px) and (max-width:767px){
+  max-height:60%;
+}
+@media only screen and (min-height: 431px) {
+  min-height:55%;
+}
+@media only screen and (max-height: 430px) {
+  max-height:70%;
 }
 
 `;
@@ -52,6 +62,25 @@ padding-top:0.5rem;
 }
 `;
 
+const DotCont = styled.div`
+width:50%;
+display:flex;
+flex-direction:row;
+justify-content:right;
+align-items:center;
+position:absolute;
+top:0.8rem;
+right:0rem;
+`;
+
+const Dot = styled.div`
+width:10px;
+height:10px;
+border-radius:5px;
+margin-right:5px;
+background:${(props)=>props.color};
+opacity:${(props)=>props.opacity};
+`;
 const AboutSlide = ({
 parafm,
 subtitle,
@@ -63,7 +92,7 @@ para3
 }) =>{
   const { theme } = useTheme();
   const contents=[{id:1,heading:subtitle, content:para}, {id:2,heading:subtitle2,content:para2}, {id:3,heading:subtitle3,content:para3}];
-  const delay = 6500;
+  const delay = 10000;
   const [index, setIndex] = useState(0);
   const timeoutRef = useRef(null);
 
@@ -83,7 +112,6 @@ para3
           )
        , delay
       );
- 
       return () => {
         resetTimeout();
       };
@@ -145,6 +173,15 @@ return<SridesArea>
    whileInView={{opacity:1,transition:{duration:1.8, delay:0.5}}}
   >
   {ContentMapping}
+  <DotCont>
+      {contents.map((content,i)=>
+        <Dot
+        key={contents[i].id}
+        opacity={index === i ? "100%":"30%" }
+        color={title[theme]}
+        />
+      )}
+  </DotCont>
   </motion.span>
   </SridesArea>
 }
