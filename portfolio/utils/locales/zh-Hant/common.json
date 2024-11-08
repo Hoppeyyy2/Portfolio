@@ -59,13 +59,17 @@
   "WorkCategory":{
     "Project_Type":"項目類型",
     "Project_Text":"行動應用程式",
+    "Project_Text2":"網路應用程式",
     "My_Role":"我的角色",
     "My_Role_Text":"UI UX Design",
     "My_Role_Text2":"Frontend Dev",
     "Stack":"使用語言",
     "Stack1":"React Native",
+    "Stack2":"Next.js",
+    "Stack3":"AWS",
     "Year":"生產期",
-    "Period":"2022年2月 〜 2022年9月"
+    "Period":"2022年2月 〜 2022年9月",
+    "Period2":"2021年9月 〜 2021年12月"
     
   },
   "Guessfit":{
@@ -84,6 +88,22 @@
     "Solutions_item1":"使用 AI 數據設立實際可行的目標",
     "Solutions_item2":"根據用戶的習慣和目標，使用 AI 數據規劃運動和飲食計劃",
     "Solutions_item3":"每日打卡來追蹤他們的成就"
+  },
+  "Rooma":{
+    "Overview1":"Rooma 是一款專為共同生活者設計的行程管理與溝通輔助應用程式。通過 Rooma，室友之間可以輕鬆制定家務規則、共享活動行程，甚至找到新室友！",
+    "Overview2":"在這個專案中，我主要負責 UI/UX 設計以及使用 Next.js 在 Vercel 上的前端開發。由於這個專案是和全端開發團隊合作的，我們也使用了 AWS 上的 Docker 容器微服務來處理後端。",
+    "Background1":"在加拿大，為了節省生活費，許多人會選擇與在社群媒體上認識的人或學校的同學一起合租生活。然而，如果在不太了解對方的情況下開始共同生活，因為彼此的生活作息不同，即使住在同一屋簷下，溝通也常常變得困難",
+    "Background2":"Rooma 的想法，正是為了解決這些共同生活中室友關係所帶來的困擾。",
+    "Problems1":"為了確定問題並縮小 Rooma 可以提供的解決範疇，我們對 8 位目前和室友同住或曾經有這種經驗的人進行了調查。調查結果顯示出以下幾個主要問題：",
+    "Problems_item1":"夜間的吵鬧",
+    "Problems_item2":"突然來訪的客人或活動",
+    "Problems_item3":"未遵守家規",
+    "Problems_item4":"共用空間使用的挫折感",
+    "Solutions1":"根據這些發現，我們決定提供以下解決方案：",
+    "Solutions_item1":"提供行事曆與行程安排功能",
+    "Solutions_item2":"每週輪流分配家務",
+    "Solutions_item3":"醒標籤以查看家規和家務",
+    "Solutions_item4":"提供積分制度，鼓勵用戶按時完成家務"
   },
   "Common":{
     

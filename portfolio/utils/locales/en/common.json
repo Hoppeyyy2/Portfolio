@@ -60,13 +60,17 @@
   "WorkCategory":{
     "Project_Type":"Project Type",
     "Project_Text":"Mobile Application",
+    "Project_Text2":"Web Application",
     "My_Role":"My Role",
     "My_Role_Text":"UI UX Design",
     "My_Role_Text2":"Frontend Dev",
     "Stack":"Stack",
     "Stack1":"React Native",
+    "Stack2":"Next.js",
+    "Stack3":"AWS",
     "Year":"Period",
-    "Period":"Feb 2022 - Sep 2022"
+    "Period":"Feb 2022 - Sep 2022",
+    "Period2":"Sep 2021 - Dec 2021"
 
   },
   "Guessfit":{
@@ -85,6 +89,22 @@
     "Solutions_item1":"Set realistic goals with AI data",
     "Solutions_item2":"Plan workout and meal schedules based on the user's habits and goals with AI data",
     "Solutions_item3":"Daily stamps to track their achievements"
+  },
+  "Rooma":{
+    "Overview1":"Rooma is a scheduling and communication aids app for people who live together. By Rooma, roommates can easily set up the house chore rules, share schedules for events, and even find new roommates!",
+    "Overview2":"In this project, I was mainly responsible for UI UX design and front-end development using Next.js on Vercel. Since I collaborated with the full-stack developer team for this project, we also use docker container micro-services on AWS for the backend.",
+    "Background1":"Many people live with roommates to save on their cost of living these days. However, living with someone you don’t know well isn't easy because everyone might have a different schedule. Therefore,  even though you are living in the same house, it’s hard to communicate with your roommates.",
+    "Background2":"The idea of Rooma comes from finding a solution for people, who are sharing the house and struggling with roommates' relationship.",
+    "Problems1":"To identify the problems and scope down the solution we can provide through Rooma, we surveyed 8 people, who are currently sharing the house or have experience.  After conducting the survey, we found out the following major issues:",
+    "Problems_item1":"Being loud at night",
+    "Problems_item2":"Unexpected guests and events",
+    "Problems_item3":"Didn’t follow house rules",
+    "Problems_item4":"Frustrations on sharing common areas",
+    "Solutions1":"From these findings, we decided to provide the following solutions:",
+    "Solutions_item1":"Have the calendar and scheduling feature ",
+    "Solutions_item2":"Distribute house chores weekly in rotation ",
+    "Solutions_item3":"Reminder notes to see house rules and chores",
+    "Solutions_item4":"Have a points system to motivate users to do their chores on time"
   },
   "Common":{
   
