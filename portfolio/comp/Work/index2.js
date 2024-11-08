@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import * as React from 'react';
-import { useRouter } from "next/router";
 import { useTheme } from "@/utils/provider";
 import { title, detail } from "@/utils/variables";
 import WorkCard from "../WorkCard";
@@ -107,18 +106,12 @@ parafm,
 title,
 })=>{
   const { theme } = useTheme();
-  const router = useRouter();
   return<Cont>
     <Responsive>
       <HeroCont>
         <Title fm={fm}>{title}</Title>
         <WorkCard
         parafm={parafm}
-        src="/guessfit_hero.svg"
-        name="Guessfit"
-        time="2022"
-        type="UI UX Design | Frontend Development"
-        onClick={() => router.push('/guessfit')}
         />
       </HeroCont>
     </Responsive>

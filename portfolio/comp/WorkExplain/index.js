@@ -56,7 +56,9 @@ item1_explain,
 item2,
 item2_explain,
 item3,
-item3_explain
+item3_explain,
+item4,
+item4_explain
 }) =>{
 
 return<Cont width={width}>
@@ -81,6 +83,12 @@ return<Cont width={width}>
     <strong>{item3}</strong>
     <Para>{item3_explain}</Para>
   </Li>
+  {item4?
+      <Li>
+      <strong>{item4}</strong>
+      <Para>{item4_explain}</Para>
+    </Li>:""
+  }
 </Ul>
 </Cont>
 }

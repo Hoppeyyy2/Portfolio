@@ -2,6 +2,7 @@ import styled from "styled-components";
 import * as React from 'react';
 import { useTheme } from "@/utils/provider";
 import { navletter} from "@/utils/variables";
+import { useRouter } from "next/router";
 
 const Cont = styled.div`
 width:100%;
@@ -13,10 +14,9 @@ overflow-x:hidden;
 &::-webkit-scrollbar {
   display: none;
 }
-@media screen and (min-width:1440px){
+@media screen and (min-width:1025px){
 }
 @media (min-width: 768px) and (max-width: 1024px) {
-
 }
 @media screen and (min-width: 601px) and (max-width:767px){
 
@@ -31,6 +31,9 @@ justify-content:left;
 align-items:center;
 padding:2rem;
 padding-left:0;
+@media screen and (min-width:1025px){
+  width:50%;
+}
 @media (min-width: 768px) and (max-width: 1080px) {
   display:flex;
   flex-direction:row;
@@ -123,24 +126,30 @@ padding-left:0.3rem;
 `;
 const WorkCard = ({
 parafm,
-src,
-name,
-time,
-type,
-onClick=()=>{},
 })=>{
   const { theme } = useTheme();
+  const router = useRouter();
   //const data = [{id:data_id, category:category,type:type,name:name,img:img_src}]
-  const fake_data = [{id:1,time:"2022",name:"Guessfit",type:"UI UX Design | Frontend Development",img:"/guessfit_hero.svg"},{id:2,time:"",name:"Example 2",type:"",img:"https://placecats.com/300/200"},{id:3,time:"",name:"Example 3",type:"",img:"https://placecats.com/300/200"}]
+  //const fake_data = [{id:1,time:"2022",name:"Guessfit",type:"UI UX Design | Frontend Development",img:"/guessfit_hero.svg"},{id:2,time:"2021",name:"Rooma",type:"UI UX Design | Frontend Development",img:"/rooma_hero.svg"}]
   return<Cont>
-      <CardCont onClick={onClick}>
-        <Img src={src}/>
+      <CardCont onClick={() => router.push('/guessfit')}>
+        <Img src="/guessfit_hero.svg"/>
         <Col>
         <Row>
-        <Title fm={parafm}>{name}</Title>
-        <Para fm={parafm} color={navletter[theme]}>{time}</Para>
+        <Title fm={parafm}>Guessfit</Title>
+        <Para fm={parafm} color={navletter[theme]}>2022</Para>
         </Row>
-          <Para fm={parafm} color={navletter[theme]}>{type}</Para>
+          <Para fm={parafm} color={navletter[theme]}>UI UX Design | Frontend Development</Para>
+        </Col>
+      </CardCont>
+      <CardCont onClick={() => router.push('/rooma')}>
+        <Img src="/rooma_hero.svg"/>
+        <Col>
+        <Row>
+        <Title fm={parafm}>Rooma</Title>
+        <Para fm={parafm} color={navletter[theme]}>2021</Para>
+        </Row>
+          <Para fm={parafm} color={navletter[theme]}>UI UX Design | Frontend Development</Para>
         </Col>
       </CardCont>
   </Cont>
