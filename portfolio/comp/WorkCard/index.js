@@ -143,7 +143,7 @@ parafm,
         </Col>
       </CardCont>
       <CardCont onClick={() => router.push('/rooma')}>
-        <Img src="/rooma_hero.svg"/>
+        <Img src="/rooma_home.svg"/>
         <Col>
         <Row>
         <Title fm={parafm}>Rooma</Title>
