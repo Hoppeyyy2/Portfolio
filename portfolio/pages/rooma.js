@@ -37,7 +37,7 @@ const Slideshow = keyframes`
 }
 
 100% { 
-  transform: translateX(-400%);
+  transform: translateX(-600%);
 }
 `;
 const ImgCont = styled.div`
@@ -61,7 +61,7 @@ height:80vh;
 
 const Img = styled.img`
 flex: 0 0 100%;
-animation: ${Slideshow} 40s linear infinite;
+animation: ${Slideshow} 60s linear infinite;
 `;
 
 const AppImg = styled.img`
@@ -203,10 +203,12 @@ const Rooma = ({
             />
         </NavCont>
         <ImgCont bg={bg[theme]}>
-          <Img src="/rooma_hero.svg"/>
-          <Img src="/rooma_hero2.svg"/>
-          <Img src="/rooma_hero3.svg"/>
-          <Img src="/rooma_hero4.svg"/>
+          <Img src="/rooma_home.svg"/>
+          <Img src="/rooma_task.svg"/>
+          <Img src="/rooma_chat.svg"/>
+          <Img src="/rooma_member.svg"/>
+          <Img src="/rooma_community.svg"/>
+          <Img src="/rooma_setting.svg"/>
         </ImgCont>
         <Article>
           <Section>
@@ -360,8 +362,21 @@ const Rooma = ({
           </Section>
           <Section bg={bg[theme]} style={{padding:"2rem"}}>
           <Col>
+          <LaptopImg src="/rooma_login.svg"/>
           <LaptopImg src="/rooma_signup.svg"/>
-          <LaptopImg src="/rooma_InRoom.svg"/>
+          <LaptopImg src="/rooma_join.svg"/>
+          <LaptopImg src="/rooma_profile.svg"/>
+          <LaptopImg src="/rooma_pickup_color.svg"/>
+          </Col>
+          </Section>
+          <Section bg={bg[theme]} style={{padding:"2rem"}}>
+          <Col>
+          <LaptopImg src="/rooma_home.svg"/>
+          <LaptopImg src="/rooma_task.svg"/>
+          <LaptopImg src="/rooma_chat.svg"/>
+          <LaptopImg src="/rooma_member.svg"/>
+          <LaptopImg src="/rooma_community.svg"/>
+          <LaptopImg src="/rooma_setting.svg"/>
           </Col>
           </Section>
           <Section style={{padding:"2rem"}}>
